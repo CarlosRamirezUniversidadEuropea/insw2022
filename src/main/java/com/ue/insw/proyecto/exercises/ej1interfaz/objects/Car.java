@@ -1,9 +1,6 @@
 package com.ue.insw.proyecto.exercises.ej1interfaz.objects;
 
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Brand;
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Color;
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Gasoline;
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status;
+import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.*;
 import com.ue.insw.proyecto.exercises.ej1interfaz.interfaces.Cleanable;
 
 import java.math.BigDecimal;
@@ -30,7 +27,7 @@ public class Car extends Vehicle implements Cleanable {
         this.status = STOPED;
     }
 
-    public Car(BigDecimal price) {
+    public Car(BrandBicycle brand, Color color, BigDecimal price) {
         super(price);
     }
 
