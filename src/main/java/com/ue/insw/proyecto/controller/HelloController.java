@@ -12,5 +12,5 @@ public class HelloController {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
 
-    //todo aañdir un botón que lleve a otra pantalla con datos de vuestra información de estudiante
+    //todo añdir un botón que lleve a otra pantalla con datos de vuestra información de estudiante
 }
