@@ -15,5 +15,7 @@ public class Main {
         System.out.println(peugeot.getColor());
         System.out.println(peugeot.toString());
         peugeot.clean();
+
+
     }
 }
