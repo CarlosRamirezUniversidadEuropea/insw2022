@@ -11,6 +11,19 @@ public class Bicycle extends Vehicle implements Cleanable {
     private int peso;
     private BicyBrand type;
     private Color color;
+    public int getPeso() {
+        return peso;
+    }
+
+    public BicyBrand getType() {
+        return type;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+
     public Bicycle(BigDecimal price, int peso, BicyBrand type, Color color){
         super (price);
         this.peso=peso;
@@ -22,4 +35,14 @@ public class Bicycle extends Vehicle implements Cleanable {
     public void clean() {
 
     }
+
+    @Override
+    public String toString() {
+        return "Bicileta{" +
+                "brand=" + type +
+                ", color=" + color +
+                ", peso=" + peso +
+                '}';
+    }
+
 }

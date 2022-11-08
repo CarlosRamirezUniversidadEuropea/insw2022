@@ -16,10 +16,8 @@ public class Main {
         Car peugeot = new Car(Brand.PEUGEOT, Color.BLACK, 150, new BigDecimal(12000));
         Bicycle bicycle= new Bicycle(new BigDecimal(1000), 60,BicyBrand.CANNONDALE, Color.WHITE);
         Truck truck=new Truck(new BigDecimal(50000),10000, TrukBrand.FORD, Color.LIGHT_GREY);
-        System.out.println(peugeot.getPrice());
-        System.out.println(peugeot.getBrand());
-        System.out.println(peugeot.getColor());
         System.out.println(peugeot.toString());
+        System.out.println(bicycle.toString());
         peugeot.clean();
     }
 }

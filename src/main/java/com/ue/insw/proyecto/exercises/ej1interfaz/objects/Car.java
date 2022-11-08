@@ -11,8 +11,6 @@ import java.math.BigDecimal;
 import static com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status.ON;
 import static com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status.STOPED;
 
-//todo extender de Vehicle
-//todo implementar Cleanable
 public class Car extends Vehicle implements Cleanable {
 
     private Brand brand;
