@@ -1,6 +1,6 @@
 package com.ue.insw.proyecto.exercises.ej1interfaz.objects;
 
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Brand;
+import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.BrandVehicle;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Color;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Gasoline;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status;
@@ -15,16 +15,18 @@ import static com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status.STOPE
 //todo implementar Cleanable
 public class Car extends Vehicle implements Cleanable {
 
-    private Brand brand;
+    private BrandVehicle brand;
     private Color color;
+    private Gasoline gasoline;
     private int maxSpeed;
     private int speed;
     private Status status;
 
-    public Car(Brand brand, Color color, int maxSpeed, BigDecimal price) {
+    public Car(BrandVehicle brand, Color color, Gasoline gasoline,int maxSpeed, BigDecimal price) {
         super(price);
         this.brand = brand;
         this.color = color;
+        this.gasoline = gasoline;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
         this.status = STOPED;
@@ -73,11 +75,11 @@ public class Car extends Vehicle implements Cleanable {
         System.out.println("Coche limpiándose");
     }
 
-    public Brand getBrand() {
+    public BrandVehicle getBrand() {
         return brand;
     }
 
-    public void setBrand(Brand brand) {
+    public void setBrand(BrandVehicle brand) {
         this.brand = brand;
     }
 

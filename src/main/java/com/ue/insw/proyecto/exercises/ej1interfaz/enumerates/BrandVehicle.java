@@ -1,6 +1,6 @@
 package com.ue.insw.proyecto.exercises.ej1interfaz.enumerates;
 
-public enum Brand {
+public enum BrandVehicle {
 
     RENAULT, PEUGEOT, FORD, TOYOTA, MERCEDES, TESLA
 
