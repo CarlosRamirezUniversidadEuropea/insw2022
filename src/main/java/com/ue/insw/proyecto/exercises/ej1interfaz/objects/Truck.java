@@ -11,6 +11,6 @@ public class Truck extends Vehicle implements Cleanable{
         super(price);
     }
     public void clean() {
-        System.out.println("Bicicleta limpiándose");
+        System.out.println("Camión limpiándose");
     }
 }
