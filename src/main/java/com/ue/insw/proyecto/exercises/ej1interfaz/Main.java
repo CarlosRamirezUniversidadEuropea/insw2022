@@ -8,12 +8,15 @@ import java.math.BigDecimal;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Car peugeot = new Car(Brand.PEUGEOT, Color.BLACK, 150, new BigDecimal(12000));
         System.out.println(peugeot.getPrice());
         System.out.println(peugeot.getBrand());
         System.out.println(peugeot.getColor());
         System.out.println(peugeot.toString());
         peugeot.clean();
+
+        peugeot.setMaxSpeed(50);
+        System.out.println(peugeot.getMaxSpeed());
     }
 }
