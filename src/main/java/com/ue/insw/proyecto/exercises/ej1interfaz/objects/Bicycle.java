@@ -1,6 +1,25 @@
 package com.ue.insw.proyecto.exercises.ej1interfaz.objects;
 
-//todo extender de Vehicle
-//todo implements Cleanable
-public class Bicycle{
+import com.ue.insw.proyecto.exercises.ej1interfaz.interfaces.Cleanable;
+
+import java.math.BigDecimal;
+import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Color;
+import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.BicyBrand;
+
+public class Bicycle extends Vehicle implements Cleanable {
+
+    private int peso;
+    private BicyBrand type;
+    private Color color;
+    public Bicycle(BigDecimal price, int peso, BicyBrand type, Color color){
+        super (price);
+        this.peso=peso;
+        this.type=type;
+        this.color = color;
+    }
+
+    @Override
+    public void clean() {
+
+    }
 }
