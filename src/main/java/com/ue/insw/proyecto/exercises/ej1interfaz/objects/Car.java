@@ -2,7 +2,7 @@ package com.ue.insw.proyecto.exercises.ej1interfaz.objects;
 
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.BrandVehicle;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Color;
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Gasoline;
+import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.GasolineVehicle;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status;
 import com.ue.insw.proyecto.exercises.ej1interfaz.interfaces.Cleanable;
 
@@ -17,16 +17,18 @@ public class Car extends Vehicle implements Cleanable {
 
     private BrandVehicle brand;
     private Color color;
-    private Gasoline gasoline;
     private int maxSpeed;
     private int speed;
     private Status status;
 
-    public Car(BrandVehicle brand, Color color, Gasoline gasoline,int maxSpeed, BigDecimal price) {
+    private GasolineVehicle gas;
+
+    private int liters;
+
+    public Car(BrandVehicle brand, Color color,int maxSpeed, BigDecimal price) {
         super(price);
         this.brand = brand;
         this.color = color;
-        this.gasoline = gasoline;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
         this.status = STOPED;
@@ -57,9 +59,14 @@ public class Car extends Vehicle implements Cleanable {
      * @param gasoline type of gas
      * @param liters number of liters
      */
-    public void fillCombustible(Gasoline gasoline, int liters) {
+    public void fillCombustible(GasolineVehicle gasoline, int liters) {
         //todo Create method to fill car
-    }
+        if(gas.equals(gasoline)) {
+            this.liters = liters;
+        } else {
+            System.err.println("Cuidado, no es tipo de combustible del coche.");
+        }
+        System.err.println();    }
 
     /**
      * Starts driving the car

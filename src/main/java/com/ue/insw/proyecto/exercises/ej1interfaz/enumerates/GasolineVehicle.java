@@ -1,6 +1,6 @@
 package com.ue.insw.proyecto.exercises.ej1interfaz.enumerates;
 
-public enum Gasoline {
+public enum GasolineVehicle {
 
-    OCTANE_95, OCTANE_98, GASOLEO_A, Non
+    OCTANE_95, OCTANE_98, GASOLEO_A
 }
