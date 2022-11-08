@@ -34,16 +34,32 @@ public class Car extends Vehicle implements Cleanable {
         super(price);
     }
 
+    /**
+     * Se asigna el precio del coche
+     * @param price
+     */
+
     //todo javadoc
     public void on() {
         this.status = ON;
     }
+
+    /**
+     * Cuando el coche se arranca
+     * @param status es cambiado a 'ON'
+     */
 
     //todo javadoc
     public void stop() {
         this.speed = 0;
         this.status = STOPED;
     }
+
+    /**
+     * Car stops driving
+     * @param speed se reduce a 0
+     * @param status se cambia a 'STOPED'
+     */
 
     //todo javadoc
     public void setSpeed(int speed) {
@@ -57,6 +73,7 @@ public class Car extends Vehicle implements Cleanable {
      */
     public void fillCombustible(Gasoline gasoline, int liters) {
         //todo Create method to fill car
+        System.out.println("Hemos llenado el tanque de gasolina del tipo " + gasoline + "con " + liters + "litros.");
     }
 
     /**
@@ -66,6 +83,8 @@ public class Car extends Vehicle implements Cleanable {
      */
     public void startDriving (int speed, int time) {
         // todo Create method to start driving
+        this.speed > maxSpeed;
+        status= ON;
     }
 
     @Override
@@ -87,7 +106,9 @@ public class Car extends Vehicle implements Cleanable {
 
     public void setColor(Color color) {
         this.color = color;
+        System.out.println("El color del coche es: " +color);
     }
+
 
     public int getMaxSpeed() {
         return maxSpeed;
