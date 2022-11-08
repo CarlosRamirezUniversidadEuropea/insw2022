@@ -75,6 +75,7 @@ public class Truck extends Vehicle implements Cleanable {
         }else{
             System.out.println("Rellenando gasolina");
         }
+
     }
 
 
