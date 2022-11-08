@@ -4,14 +4,17 @@ import java.math.BigDecimal;
 
 public class Vehicle {
 
-    private BigDecimal price;
+    BigDecimal price;
     private int speed;
 
+
     public Vehicle(BigDecimal price) {
+
         this.price = price;
     }
 
     public BigDecimal getPrice(){
+
         return price;
     }
 }
