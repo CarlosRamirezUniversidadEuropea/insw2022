@@ -19,14 +19,13 @@ public class Bicycle extends Vehicle implements Cleanable {
 
     private int speed;
 
-    private Status status;
     public Bicycle(BrandBike brandbike, Color color, int maxSpeed, BigDecimal price) {
         super(price);
         this.brandbike = brandbike;
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
-        this.status = STOPED;
+
     }
 
     public Bicycle(BigDecimal price) {
@@ -34,14 +33,12 @@ public class Bicycle extends Vehicle implements Cleanable {
     }
 
     //todo javadoc
-    public void on() {
-        this.status = ON;
-    }
+
 
     //todo javadoc
     public void stop() {
         this.speed = 0;
-        this.status = STOPED;
+
     }
 
     //todo javadoc
@@ -54,9 +51,8 @@ public class Bicycle extends Vehicle implements Cleanable {
      * @param gasoline type of gas
      * @param liters number of liters
      */
-    public void fillCombustible(Gasoline gasoline, int liters) {
-        //todo Create method to fill car
-    }
+
+
 
     /**
      * Starts driving the car
@@ -101,13 +97,6 @@ public class Bicycle extends Vehicle implements Cleanable {
         return speed;
     }
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
 
     @Override
     public String toString() {
@@ -116,7 +105,7 @@ public class Bicycle extends Vehicle implements Cleanable {
                 ", color=" + color +
                 ", maxSpeed=" + maxSpeed +
                 ", speed=" + speed +
-                ", status=" + status +
+
                 '}';
     }
 }

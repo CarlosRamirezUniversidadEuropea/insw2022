@@ -21,13 +21,21 @@ public class Car extends Vehicle implements Cleanable {
     private int speed;
     private Status status;
 
-    public Car(Brand brand, Color color, int maxSpeed, BigDecimal price) {
+    private Gasoline tipoGasolina;
+
+    private int litrosActuales;
+
+
+    public Car(Brand brand, Color color, int maxSpeed, BigDecimal price, int litrosActuales, Gasoline tipoGasolina ) {
         super(price);
         this.brand = brand;
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
         this.status = STOPED;
+        this.litrosActuales= litrosActuales;
+        this.tipoGasolina= tipoGasolina;
+
     }
 
     public Car(BigDecimal price) {
@@ -57,7 +65,10 @@ public class Car extends Vehicle implements Cleanable {
      */
     public void fillCombustible(Gasoline gasoline, int liters) {
         //todo Create method to fill car
+
+
     }
+
 
     /**
      * Starts driving the car
@@ -93,22 +104,25 @@ public class Car extends Vehicle implements Cleanable {
         return maxSpeed;
     }
 
-    //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
-    }
 
-    public int getSpeed() {
+    //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
+
+
+
+    public void setMaxSpeed(int maxSpeed) throws Exception {
+        this.maxSpeed = maxSpeed;
+        if (maxSpeed < 0 ) {
+            throw new Exception("La velocidad debe de ser positiva");
+        } else {
+            this.maxSpeed = maxSpeed;
+            System.out.println("La velocidad se ha modificado");
+        }
+
+        public int getSpeed() {
         return speed;
     }
 
-    public Status getStatus() {
-        return status;
-    }
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
 
     @Override
     public String toString() {
@@ -118,6 +132,20 @@ public class Car extends Vehicle implements Cleanable {
                 ", maxSpeed=" + maxSpeed +
                 ", speed=" + speed +
                 ", status=" + status +
+                ", tipoGasoline=" + tipoGasolina +
                 '}';
     }
 }
+
+    public void setLitrosActuales(int litrosActuales) {
+        this.litrosActuales = litrosActuales;
+        System.out.println("La cantidad de litros actuales es de: "+ litrosActuales);
+
+    }
+
+    public void setTipoGasolina(Gasoline tipoGasolina){
+     this.tipoGasolina= tipoGasolina;
+     System.out.println("El tipo de gasolina es "+tipoGasolina)
+
+    }
+

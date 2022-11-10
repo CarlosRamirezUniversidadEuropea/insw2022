@@ -19,13 +19,17 @@ public class Truck extends Vehicle implements Cleanable {
     private int speed;
     private Status status;
 
-    public Truck(Brand brand, Color color, int maxSpeed, BigDecimal price) {
+    private int maxKilosSoportables;
+
+
+    public Truck(Brand brand, Color color, int maxSpeed, BigDecimal price, int maxKilosSoportables) {
         super(price);
         this.brand = brand;
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
         this.status = STOPED;
+        this.maxKilosSoportables= maxKilosSoportables;
     }
 
     public Truck(BigDecimal price) {
@@ -73,6 +77,8 @@ public class Truck extends Vehicle implements Cleanable {
      * @param speed desired to drive
      * @param time in seconds
      */
+
+
     public void startDriving (int speed, int time) {
         // todo Create method to start driving
         setSpeed(speed);
@@ -109,17 +115,23 @@ public class Truck extends Vehicle implements Cleanable {
     //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
 
 
+    public void setmaxKilosSoportables(int maxKilosSoportables){
+        this.maxKilosSoportables= maxKilosSoportables;
+        System.out.println("La cantidad de maximo de kilogramos soportables es: " + maxKilosSoportables);
+
+
+
     }
 
 
-    public void setMaxSpeed(int maxSpeed) {
+    public void setMaxSpeed(int maxSpeed) throws Exception {
         this.maxSpeed = maxSpeed;
         if (maxSpeed < 0 ) {
-            System.out.println("La velocidad debe de ser positiva");
+            throw new Exception("La velocidad debe de ser positiva");
+        } else {
+            this.maxSpeed = maxSpeed;
+            System.out.println("La velocidad se ha modificado");
         }
-            else {
-                this.maxSpeed = maxSpeed;
-            }
 
 
     }
@@ -147,3 +159,4 @@ public class Truck extends Vehicle implements Cleanable {
                 '}';
     }
 }
+
