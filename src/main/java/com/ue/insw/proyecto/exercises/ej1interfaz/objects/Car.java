@@ -18,12 +18,16 @@ public class Car extends Vehicle implements Cleanable {
     private int maxSpeed;
     private int speed;
     private Status status;
+    private Gasoline gasolineType;
+    private int capacity;
 
-    public Car(Brand brand, Color color, int maxSpeed, BigDecimal price) {
+    public Car(Brand brand, Color color, int maxSpeed, BigDecimal price, Gasoline gasolineType, int capacity) {
         super(price);
         this.brand = brand;
         this.color = color;
         this.maxSpeed = maxSpeed;
+        this.gasolineType =gasolineType;
+        this.capacity=capacity;
         this.speed = 0;
         this.status = STOPED;
     }
@@ -32,18 +36,26 @@ public class Car extends Vehicle implements Cleanable {
         super(price);
     }
 
-    //todo javadoc
+    /**
+     * Arrancar el coche
+     */
     public void on() {
         this.status = ON;
     }
 
-    //todo javadoc
+    /**
+     * Parar el coche
+     */
     public void stop() {
         this.speed = 0;
         this.status = STOPED;
     }
 
-    //todo javadoc
+
+    /**
+     * Configuro la velocidad del coche
+     * @param speed number of velocity
+     */
     public void setSpeed(int speed) {
         this.speed = speed;
     }
@@ -53,8 +65,17 @@ public class Car extends Vehicle implements Cleanable {
      * @param gasoline type of gas
      * @param liters number of liters
      */
-    public void fillCombustible(Gasoline gasoline, int liters) {
-        //todo Create method to fill car
+    public void fillCombustible(Gasoline gasoline, int liters) throws Exception {
+        if (gasolineType ==gasoline){
+            System.out.println("Ha seleccionado "+ gasolineType);
+            if(capacity>=liters && liters>0){
+                System.out.println("A repostado "+ liters);
+            }else{
+                throw new Exception("No puede echar esa cantidad de gasolina.");
+            }
+        }else{
+            throw new Exception("Gasolina introducida incorrecta.");
+        }
     }
 
     /**
@@ -62,8 +83,13 @@ public class Car extends Vehicle implements Cleanable {
      * @param speed desired to drive
      * @param time in seconds
      */
-    public void startDriving (int speed, int time) {
-        // todo Create method to start driving
+    public void startDriving (int speed) throws Exception {
+        if(capacity>0 && speed>0 && speed<=maxSpeed){
+            System.out.println("El coche está en marcha. ");
+        }else{
+            throw new Exception("Velocidad o gasolina incorrecta.");
+        }
+
     }
 
     @Override
@@ -91,9 +117,13 @@ public class Car extends Vehicle implements Cleanable {
         return maxSpeed;
     }
 
-    //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
-    public void setMaxSpeed(int maxSpeed) {
+    public void setMaxSpeed(int maxSpeed) throws Exception{
         this.maxSpeed = maxSpeed;
+        if (maxSpeed<0){
+            throw new Exception("Velocidad incorrecta");
+        }else{
+            System.out.println("Velocidad máxima aplicada correctamente. ");
+        }
     }
 
     public int getSpeed() {

@@ -33,7 +33,7 @@ public class Bicycle extends Vehicle implements Cleanable {
 
     @Override
     public void clean() {
-
+        System.out.println("Limpiándose la bici");
     }
 
     @Override

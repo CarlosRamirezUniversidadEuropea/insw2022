@@ -20,8 +20,40 @@ public class Truck extends Vehicle implements Cleanable {
         this.color=color;
     }
 
+    public int getPeso() {
+        return peso;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
+    }
+
+    public TrukBrand getType() {
+        return type;
+    }
+
+    public void setType(TrukBrand type) {
+        this.type = type;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public String toString() {
+        return "Truck{" +
+                "brand=" + type +
+                ", color=" + color +
+                ", peso=" + peso +
+                '}';
+    }
+
     @Override
     public void clean() {
-
+        System.out.println("Truck limpiándose.");
     }
 }
