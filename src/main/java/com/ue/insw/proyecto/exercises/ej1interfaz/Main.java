@@ -2,6 +2,7 @@ package com.ue.insw.proyecto.exercises.ej1interfaz;
 
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Brand;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.BrandBicycle;
+import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.BrandTruck;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Color;
 import com.ue.insw.proyecto.exercises.ej1interfaz.objects.Car;
 import com.ue.insw.proyecto.exercises.ej1interfaz.objects.Truck;
@@ -19,11 +20,14 @@ public class Main {
         System.out.println(peugeot.toString());
         peugeot.clean();
 
-        Truck Volvo = new Truck(new BigDecimal(15000));
+        Truck Volvo = new Truck(BrandTruck.VOLVO, Color.WHITE, 100, new BigDecimal(15000));
         System.out.println(Volvo.getPrice());
+        System.out.println(Volvo.getBrand());
+        System.out.println(Volvo.getColor());
+        System.out.println(Volvo.toString());
         Volvo.clean();
 
-        Bicycle cannondale = new Bicycle(BrandBicycle.CANNONDALE, Color.WHITE, new BigDecimal(1000));
+        Bicycle cannondale = new Bicycle(BrandBicycle.CANNONDALE, Color.RED, new BigDecimal(1000));
         System.out.println(cannondale.getPrice());
         System.out.println(cannondale.getBrand());
         System.out.println(cannondale.getColor());
