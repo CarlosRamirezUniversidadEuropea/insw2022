@@ -1,6 +1,8 @@
 package com.ue.insw.proyecto.exercises.ej1interfaz.interfaces;
 
-public interface Cleanable {
+import com.ue.insw.proyecto.exercises.ej1interfaz.objects.Bicycle;
+
+public interface Cleanable{
 
     void clean();
 
