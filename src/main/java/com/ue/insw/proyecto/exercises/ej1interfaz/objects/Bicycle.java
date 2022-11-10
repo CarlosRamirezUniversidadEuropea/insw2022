@@ -37,4 +37,11 @@ public class Bicycle extends Vehicle implements Cleanable{
     public void clean() {
         System.out.println("Bicicleta limpiándose");
     }
+
+    public String toString() {
+        return "Bicycle{" +
+                "brand=" + brand +
+                ", color=" + color +
+                '}';
+    }
 }

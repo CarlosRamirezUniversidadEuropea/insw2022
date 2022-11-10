@@ -46,4 +46,14 @@ public class Truck extends Vehicle implements Cleanable{
     public void setColor(Color color) {
         this.color = color;
     }
+
+    public String toString() {
+        return "Truck{" +
+                "brand=" + brand +
+                ", color=" + color +
+                ", maxSpeed=" + maxSpeed +
+                ", speed=" + speed +
+                ", status=" + status +
+                '}';
+    }
 }
