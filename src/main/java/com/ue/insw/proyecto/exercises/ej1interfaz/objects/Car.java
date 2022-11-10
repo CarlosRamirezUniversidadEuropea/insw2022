@@ -11,8 +11,8 @@ import java.math.BigDecimal;
 import static com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status.ON;
 import static com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status.STOPED;
 
-//todo extender de Vehicle
-//todo implementar Cleanable
+
+
 public class Car extends Vehicle implements Cleanable {
 
     private Brand brand;
@@ -20,32 +20,42 @@ public class Car extends Vehicle implements Cleanable {
     private int maxSpeed;
     private int speed;
     private Status status;
+    private Gasoline tipoGasoline;
+    private int litrosTotales;
+    private int litrosActuales;
 
-    public Car(Brand brand, Color color, int maxSpeed, BigDecimal price) {
+
+
+    public Car(Brand brand, Color color, int maxSpeed, Gasoline tipoGasoline,int litrosTotales, int litrosActuales, BigDecimal price) {
         super(price);
         this.brand = brand;
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
         this.status = STOPED;
+        this.tipoGasoline=tipoGasoline;
+        this.litrosTotales=litrosTotales;
+        this.litrosActuales=litrosActuales;
     }
 
     public Car(BigDecimal price) {
+
         super(price);
     }
 
-    //todo javadoc
+
+    //arrancar el coche
     public void on() {
         this.status = ON;
     }
 
-    //todo javadoc
+    //parar el coche
     public void stop() {
         this.speed = 0;
         this.status = STOPED;
     }
 
-    //todo javadoc
+    //marcar velocidad
     public void setSpeed(int speed) {
         this.speed = speed;
     }
@@ -55,8 +65,14 @@ public class Car extends Vehicle implements Cleanable {
      * @param gasoline type of gas
      * @param liters number of liters
      */
-    public void fillCombustible(Gasoline gasoline, int liters) {
-        //todo Create method to fill car
+    public void fillCombustible(Gasoline gasoline, int liters, Gasoline tipoGasoline, int litrosActuales, int litrosTotales) {
+        if(gasoline.equals(tipoGasoline) && litrosActuales<50) {
+            System.out.println("Cuantos litros quieres repostar? ");
+            liters=litrosTotales-litrosActuales;
+            System.out.println("Deposito lleno con " +liters+ " litros");
+        }else {
+            System.out.println("No es el tipo de gasolina correcta");
+        }
     }
 
     /**
@@ -64,8 +80,16 @@ public class Car extends Vehicle implements Cleanable {
      * @param speed desired to drive
      * @param time in seconds
      */
-    public void startDriving (int speed, int time) {
-        // todo Create method to start driving
+    public void startDriving (int speed, int time, int litrosActuales, int maxSpeed) {
+        if(litrosActuales>0) {
+            if (speed<maxSpeed) {
+                System.out.println("Esta conduciendo sin problema alguno");
+            }else {
+                System.out.println("Reduzca la velocidad por favor, no se adecua a la via");
+            }
+        }else {
+            System.out.println("No te queda gasolina vaya a repostar");
+        }
     }
 
     @Override
@@ -108,6 +132,30 @@ public class Car extends Vehicle implements Cleanable {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Gasoline getTipoGasoline() {
+        return tipoGasoline;
+    }
+
+    public void setTipoGasoline(Gasoline tipoGasoline) {
+        this.tipoGasoline = tipoGasoline;
+    }
+
+    public int getLitrosTotales() {
+        return litrosTotales;
+    }
+
+    public void setLitrosTotales(int litrosTotales) {
+        this.litrosTotales = litrosTotales;
+    }
+
+    public int getLitrosActuales() {
+        return litrosActuales;
+    }
+
+    public void setLitrosActuales(int litrosActuales) {
+        this.litrosActuales = litrosActuales;
     }
 
     @Override
