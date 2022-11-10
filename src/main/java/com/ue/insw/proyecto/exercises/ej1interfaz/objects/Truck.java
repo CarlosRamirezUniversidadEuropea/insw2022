@@ -7,8 +7,7 @@ import com.ue.insw.proyecto.exercises.ej1interfaz.interfaces.Cleanable;
 
 import static com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status.STOPED;
 
-//todo extender de Vehicle
-//todo implements Cleanable
+
 public class Truck extends Vehicle implements Cleanable{
     private BigDecimal price;
     private BrandTruck brand;

@@ -7,8 +7,6 @@ import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.BrandBicycle;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Color;
 import com.ue.insw.proyecto.exercises.ej1interfaz.interfaces.Cleanable;
 
-//todo extender de Vehicle
-//todo implements Cleanable
 public class Bicycle extends Vehicle implements Cleanable{
     private BigDecimal price;
     private Color color;
