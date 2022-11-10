@@ -1,9 +1,6 @@
 package com.ue.insw.proyecto.exercises.ej1interfaz.objects;
 
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Brand;
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Color;
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Gasoline;
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status;
+import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.*;
 import com.ue.insw.proyecto.exercises.ej1interfaz.interfaces.Cleanable;
 
 import java.math.BigDecimal;
@@ -15,13 +12,13 @@ import static com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status.STOPE
 //todo implements Cleanable
 public class Truck extends Vehicle implements Cleanable{
 
-        private Brand brand;
+        private TruckBrand brand;
         private Color color;
         private int maxSpeed;
         private int speed;
         private Status status;
 
-        public Truck(Brand brand, Color color, int maxSpeed, BigDecimal price) {
+        public Truck(TruckBrand brand, Color color, int maxSpeed, BigDecimal price) {
             super(price);
             this.brand = brand;
             this.color = color;
@@ -72,12 +69,11 @@ public class Truck extends Vehicle implements Cleanable{
         public void clean() {
             System.out.println("Camion limpiándose");
         }
-
-        public Brand getBrand() {
+        public TruckBrand getBrand() {
             return brand;
         }
 
-        public void setBrand(Brand brand) {
+        public void setBrand(TruckBrand brand) {
             this.brand = brand;
         }
 
@@ -94,9 +90,16 @@ public class Truck extends Vehicle implements Cleanable{
         }
 
         //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
-        public void setMaxSpeed(int maxSpeed) {
+        public void setMaxSpeed(int maxSpeed) throws Exception {
             this.maxSpeed = maxSpeed;
+            if (maxSpeed <0 ){
+            throw new Exception("El numero tiene que ser positivo");
+        }else{
+            this.maxSpeed = maxSpeed;
+            System.out.println("La velocidad se ha modificado");
         }
+    }
+
 
         public int getSpeed() {
             return speed;

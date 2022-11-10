@@ -3,6 +3,8 @@ package com.ue.insw.proyecto.exercises.ej1interfaz;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Brand;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.BycicleBrand;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Color;
+import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.TruckBrand;
+import com.ue.insw.proyecto.exercises.ej1interfaz.objects.Truck;
 import com.ue.insw.proyecto.exercises.ej1interfaz.objects.Bicycle;
 import com.ue.insw.proyecto.exercises.ej1interfaz.objects.Car;
 
@@ -24,5 +26,14 @@ public class Main {
         System.out.println(bmx.getColor());
         System.out.println(bmx.toString());
         bmx.clean();
+
+        Truck volvo = new Truck(TruckBrand.Volvo, Color.BLACK, 100, new BigDecimal(120));
+        System.out.println(volvo.getPrice());
+        System.out.println(volvo.getBrand());
+        System.out.println(volvo.getColor());
+        System.out.println(volvo.toString());
+        volvo.clean();
+
+
     }
 }

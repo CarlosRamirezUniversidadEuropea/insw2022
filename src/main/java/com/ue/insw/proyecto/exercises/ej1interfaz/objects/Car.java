@@ -21,6 +21,11 @@ public class Car extends Vehicle implements Cleanable {
     private int speed;
     private Status status;
 
+    private Gasoline gasoline;
+
+    private int litrosActuales;
+
+
     public Car(Brand brand, Color color, int maxSpeed, BigDecimal price) {
         super(price);
         this.brand = brand;
@@ -55,7 +60,13 @@ public class Car extends Vehicle implements Cleanable {
      * @param gasoline type of gas
      * @param liters number of liters
      */
-    public void fillCombustible(Gasoline gasoline, int liters) {
+    public void fillCombustible(Gasoline gasoline, int liters) throws Exception {
+        if (this.gasoline == gasoline) {
+            this.litrosActuales=liters;
+            System.out.println(" Has Rellenado tu coche con existo ");
+        } else {
+            throw new Exception("El combustible no coincide con lo del coche ");
+        }
         //todo Create method to fill car
     }
 
@@ -110,6 +121,8 @@ public class Car extends Vehicle implements Cleanable {
         this.status = status;
     }
 
+    public enum gasoline (Gasoline gasoline) {}
+
     @Override
     public String toString() {
         return "Car{" +
@@ -118,6 +131,7 @@ public class Car extends Vehicle implements Cleanable {
                 ", maxSpeed=" + maxSpeed +
                 ", speed=" + speed +
                 ", status=" + status +
+                ",gasoline=" + gasoline +
                 '}';
     }
 }

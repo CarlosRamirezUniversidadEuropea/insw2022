@@ -47,14 +47,8 @@ public class Bicycle extends Vehicle implements Cleanable{
             this.speed = speed;
         }
 
-        /**
-         * fills the Bicycle with gasoline
-         * @param gasoline type of gas
-         * @param liters number of liters
-         */
-        public void fillCombustible(Gasoline gasoline, int liters) {
-            //todo Create method to fill Bicycle
-        }
+
+
 
         /**
          * Starts driving the Bicycle
@@ -94,6 +88,7 @@ public class Bicycle extends Vehicle implements Cleanable{
         public void setMaxSpeed(int maxSpeed) {
             this.maxSpeed = maxSpeed;
         }
+
 
         public int getSpeed() {
             return speed;
