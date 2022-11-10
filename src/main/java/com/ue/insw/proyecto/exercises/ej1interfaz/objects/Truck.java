@@ -56,17 +56,19 @@ public class Truck extends Vehicle implements Cleanable {
         this.speed = speed;
     }
 
-    public void fillCombustible(Gasoline gasoline, int liters) {
-
-        }
-
     private void fillCar() {
         fillCombustible();
     }
 
-    private void fillCombustible() {                //Siendo la capacidad máxima del camión 50 l
+    private void pesoMax(){
+        pesoMax();
+    }
+
+    private void fillCombustible() {
+    }
+
+    public void fillCombustible(Gasoline gasoline, int liters) {                //Siendo la capacidad máxima del camión 50 l
         int capacidadMax = 0;
-        System.out.println("Cuanta gasolina quiere echar?");
         //Leemos la variable que contenga la cantidad de gasolina. En este caso: capacidadMax.
         if(capacidadMax == 50){
             System.out.println("Se ha alcanzado la máxima capacidad de gasolina. ");
