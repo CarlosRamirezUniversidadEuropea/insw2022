@@ -20,8 +20,10 @@ public class Truck extends Vehicle implements Cleanable {
     private int litrosdeposito;
     private int litrosactuales;
     private int time;
+    private int cargamax;
 
-    public Truck(BrandCamion brand, Color color, int maxSpeed, BigDecimal price) {
+    private int cargaActual;
+    public Truck(BrandCamion brand, Color color, int maxSpeed,int cargamax , int cargaActual, BigDecimal price) {
 
         super(price);
         this.brand = brand;
@@ -32,6 +34,8 @@ public class Truck extends Vehicle implements Cleanable {
         this.gasolinetype = gasolinetype;
         this.litrosdeposito = litrosdeposito;
         this.litrosactuales = 9;
+        this.cargamax = cargamax;
+        this.cargaActual = cargaActual;
 
     }
 
@@ -43,7 +47,6 @@ public class Truck extends Vehicle implements Cleanable {
     /**
      * print status
      * STATUS ON
-     * Sets speed 0
      */
     public void on() {
         if (speed>0){
@@ -82,7 +85,7 @@ public class Truck extends Vehicle implements Cleanable {
             liters = litrosdeposito-litrosactuales;
             System.out.println("se llena con "+liters+"litros");
         }else{
-            System.out.println("Tu coche no usa ese tipo de combustible");
+            System.out.println("Tu camion no usa ese tipo de combustible");
         }
 
     }
@@ -96,9 +99,9 @@ public class Truck extends Vehicle implements Cleanable {
         // todo Create method to start driving
         if(litrosactuales > 0 && speed <= maxSpeed){
             if (speed>0){
-                System.out.println("Coche en movimiento");
+                System.out.println("camion en movimiento");
             }else{
-                System.out.println("Coche PARADO");
+                System.out.println("CAMION PARADO");
             }
             this.speed = speed;
             this.time = time;
@@ -110,7 +113,7 @@ public class Truck extends Vehicle implements Cleanable {
 
     @Override
     public void clean() {
-        System.out.println("Coche limpiándose");
+        System.out.println("camión limpiándose");
     }
 
     public BrandCamion getBrand() {
@@ -120,6 +123,31 @@ public class Truck extends Vehicle implements Cleanable {
     public void setBrand(BrandCamion brand) {
         this.brand = brand;
     }
+
+    /**
+        Set cargamax
+     */
+    public void setCargamax(int cargamax) {
+        this.cargamax = cargamax;
+    }
+
+    public int getCargamax() throws Exception{
+        return cargamax;
+    }
+    public void setCargaActual(int cargaActual) {
+        this.cargaActual = cargaActual;
+    }
+    public int getCargaActual() throws Exception{
+        if (cargaActual > cargamax){
+            throw new Exception("EL VEHICULO SE PASA DEL PESO PERMITIDO");
+        }else{
+            System.out.println(cargaActual + " KG de carga actual");
+            this.cargaActual=cargaActual;
+        }
+        return cargaActual;
+    }
+
+
 
     public Color getColor() {
         return color;
@@ -174,6 +202,8 @@ public class Truck extends Vehicle implements Cleanable {
                 ", maxSpeed=" + maxSpeed +
                 ", speed=" + speed +
                 ", status=" + status +
+                ", cargamax=" + cargamax +
+                ", cargaActual=" + cargaActual +
                 '}';
     }
 }

@@ -62,30 +62,39 @@ public class Main {
         System.out.println(BMX.toString());
         BMX.clean();
 
-        Truck camion = new Truck(BrandCamion.SCANIA, Color.WHITE, 120 ,new BigDecimal(60000));
+        System.out.println("\n");
+
+        Truck camion = new Truck(BrandCamion.SCANIA, Color.WHITE, 120 ,3000,3000,new BigDecimal(60000));
         System.out.println(camion.getPrice());
         System.out.println(camion.getBrand());
         System.out.println(camion.getColor());
         try{
             camion.getSpeed();
-            System.out.println("La velocidad actual es "+peugeot.getSpeed());
+            System.out.println("La velocidad actual es "+camion.getSpeed());
         }catch (Exception e){
             e.printStackTrace();
         }
         try {
-            peugeot.startDriving(peugeot.getSpeed(), 100);
+            camion.startDriving(camion.getSpeed(), 100);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         try{
-            peugeot.getMaxSpeed();
-            System.out.println("La velocidad maxima es " + peugeot.getMaxSpeed());
+            camion.getMaxSpeed();
+            System.out.println("La velocidad maxima es " + camion.getMaxSpeed());
         }catch(Exception e){
             e.printStackTrace();
         }
-        System.out.println(peugeot.getStatus());
-        System.out.println(peugeot.toString());
-        peugeot.clean();
+        System.out.println("La carga maxima del camion es "+ camion.getCargamax());
+        try{
+            camion.getCargaActual();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        System.out.println(camion.getStatus());
+        System.out.println(camion.toString());
+        camion.clean();
+        System.out.println("\n");
 
 
     }
