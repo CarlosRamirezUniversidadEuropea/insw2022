@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 
 import static com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status.ON;
 import static com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status.STOPED;
-
 //todo extender de Vehicle
 //todo implementar Cleanable
 public class Car extends Vehicle implements Cleanable {
@@ -21,13 +20,26 @@ public class Car extends Vehicle implements Cleanable {
     private int speed;
     private Status status;
 
+    private Gasoline gasolinetype;
+
+    private int litrosdeposito;
+
+    private int litrosactuales;
+
+    private int time;
+
     public Car(Brand brand, Color color, int maxSpeed, BigDecimal price) {
+
         super(price);
         this.brand = brand;
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
         this.status = STOPED;
+        this.gasolinetype = gasolinetype;
+        this.litrosdeposito = litrosdeposito;
+        this.litrosactuales = 9;
+
     }
 
     public Car(BigDecimal price) {
@@ -35,17 +47,33 @@ public class Car extends Vehicle implements Cleanable {
     }
 
     //todo javadoc
+    /**
+     * print status
+     * STATUS ON
+     * Sets speed 0
+     */
     public void on() {
+        if (speed>0){
         this.status = ON;
+        }
     }
 
     //todo javadoc
+    /**
+     * print status
+     * Status STOPED
+     * Sets speed 0
+     */
     public void stop() {
-        this.speed = 0;
-        this.status = STOPED;
+            this.speed = 0;
+            this.status = STOPED;
     }
 
     //todo javadoc
+    /**
+     * set speed
+     * @param speed speed of the vehicle
+     */
     public void setSpeed(int speed) {
         this.speed = speed;
     }
@@ -57,6 +85,13 @@ public class Car extends Vehicle implements Cleanable {
      */
     public void fillCombustible(Gasoline gasoline, int liters) {
         //todo Create method to fill car
+        if (gasoline == gasolinetype && litrosactuales < 35){
+            liters = litrosdeposito-litrosactuales;
+            System.out.println("se llena con "+liters+"litros");
+        }else{
+            System.out.println("Tu coche no usa ese tipo de combustible");
+        }
+
     }
 
     /**
@@ -64,8 +99,20 @@ public class Car extends Vehicle implements Cleanable {
      * @param speed desired to drive
      * @param time in seconds
      */
-    public void startDriving (int speed, int time) {
+    public void startDriving (int speed, int time) throws Exception {
         // todo Create method to start driving
+        if(litrosactuales > 0 && speed <= maxSpeed){
+            if (speed>0){
+                System.out.println("Coche en movimiento");
+            }else{
+                System.out.println("Coche PARADO");
+            }
+            this.speed = speed;
+            this.time = time;
+        }else{
+            throw new Exception("Datos introducidos incorrectamente");
+        }
+
     }
 
     @Override
@@ -90,16 +137,32 @@ public class Car extends Vehicle implements Cleanable {
     }
 
     public int getMaxSpeed() {
+        if (maxSpeed < 0){
+            this.speed = -maxSpeed;
+        }
         return maxSpeed;
     }
 
     //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
+    public int setMaxSpeed(int maxSpeed) throws Exception {
+        if(speed > 0 ){
+            System.out.println("La velocidad maxima es "+maxSpeed);
+
+        }else{
+            throw new Exception("La velocidad no puede ser negativa");
+        }
+
+        return maxSpeed;
     }
 
-    public int getSpeed() {
-        return speed;
+    public int getSpeed() throws Exception {
+        if (speed < 0) {
+            throw new Exception("La velocidad no puede ser negativa");
+        }
+            return speed;
+
+
+
     }
 
     public Status getStatus() {
