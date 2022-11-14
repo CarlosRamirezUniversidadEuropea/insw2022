@@ -37,6 +37,21 @@ public class Truck extends Vehicle implements Cleanable {
     }
 
     @Override
+    public String toString() {
+        return "Truck{" +
+                "brand=" + brand +
+                ", color=" + color +
+                ", maxSpeed=" + maxSpeed +
+                ", speed=" + speed +
+                ", status=" + status +
+                ", tipoGasoline=" + tipoGasoline +
+                ", litrosTotales=" + litrosTotales +
+                ", litrosActuales=" + litrosActuales +
+                ", kilosSoportados=" + kilosSoportados +
+                '}';
+    }
+
+    @Override
     public void clean() {
 
     }

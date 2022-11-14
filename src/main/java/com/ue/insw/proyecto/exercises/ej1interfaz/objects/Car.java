@@ -69,9 +69,9 @@ public class Car extends Vehicle implements Cleanable {
         if(gasoline.equals(tipoGasoline) && litrosActuales<50) {
             System.out.println("Cuantos litros quieres repostar? ");
             liters=litrosTotales-litrosActuales;
-            System.out.println("Deposito lleno con " +liters+ " litros");
+            System.out.println("Has repostado " +liters+ " litros");
         }else {
-            System.out.println("No es el tipo de gasolina correcta");
+            System.out.println("No es el tipo de gasolina correcta o tienes el deposito lleno");
         }
     }
 
@@ -166,6 +166,9 @@ public class Car extends Vehicle implements Cleanable {
                 ", maxSpeed=" + maxSpeed +
                 ", speed=" + speed +
                 ", status=" + status +
+                ", tipoGasoline=" + tipoGasoline +
+                ", litrosTotales=" + litrosTotales +
+                ", litrosActuales=" + litrosActuales +
                 '}';
     }
 }
