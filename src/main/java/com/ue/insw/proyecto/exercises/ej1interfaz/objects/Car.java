@@ -117,9 +117,13 @@ public class Car extends Vehicle implements Cleanable {
         return maxSpeed;
     }
 
-    //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
-    public void setMaxSpeed(int maxSpeed) {
+    public void setMaxSpeed(int maxSpeed) throws Exception {
         this.maxSpeed = maxSpeed;
+        if(maxSpeed<0) {
+            throw new Exception("Velocidad incorrecta");
+        } else {
+            System.out.println("Velocidad aplicada correctamente");
+        }
     }
 
     public int getSpeed() {

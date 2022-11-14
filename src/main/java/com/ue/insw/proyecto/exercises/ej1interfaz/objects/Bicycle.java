@@ -25,7 +25,7 @@ public class Bicycle extends Vehicle implements Cleanable {
 
     @Override
     public void clean() {
-
+        System.out.println("Bicicleta limpiándose");
     }
 
     @Override
