@@ -20,9 +20,7 @@ public class Car extends Vehicle implements Cleanable {
     private int maxSpeed;
     private int speed;
     private Status status;
-
     private GasolineVehicle gas;
-
     private int liters;
 
     public Car(BrandVehicle brand, Color color,int maxSpeed, BigDecimal price) {
@@ -64,9 +62,9 @@ public class Car extends Vehicle implements Cleanable {
         if(gas.equals(gasoline)) {
             this.liters = liters;
         } else {
-            System.err.println("Cuidado, no es tipo de combustible del coche.");
+            System.err.println("Coche llenado.");
         }
-        System.err.println();    }
+    }
 
     /**
      * Starts driving the car
@@ -74,7 +72,7 @@ public class Car extends Vehicle implements Cleanable {
      * @param time in seconds
      */
     public void startDriving (int speed, int time) {
-        // todo Create method to start driving
+
     }
 
     @Override
@@ -104,7 +102,11 @@ public class Car extends Vehicle implements Cleanable {
 
     //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
     public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
+        if(maxSpeed > 0) {
+            this.maxSpeed = maxSpeed;
+        } else {
+            System.err.println("Error, no puede tener velocidad negativa");
+        }
     }
 
     public int getSpeed() {
