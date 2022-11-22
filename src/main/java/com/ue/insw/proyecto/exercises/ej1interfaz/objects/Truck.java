@@ -17,9 +17,8 @@ public class Truck extends Vehicle implements Cleanable {
     private int maxSpeed;
     private int speed;
     private Status status;
-
+    private int time;
     private GasolineVehicle gas;
-
     private int liters;
 
     public Truck(BrandTruck brand, Color color,int maxSpeed, BigDecimal price) {
@@ -57,21 +56,29 @@ public class Truck extends Vehicle implements Cleanable {
      * @param liters number of liters
      */
     public void fillCombustible(GasolineVehicle gasoline, int liters) {
-        //todo Create method to fill car
+        //Rellena el coche de combustible, compara que el tipo de combustible que echas sea igual al que es, si no lo es te dice que el tipo de combustible es erroneo.
         if(gas.equals(gasoline)) {
             this.liters = liters;
+            System.out.println("Coche llenado.");
         } else {
-            System.err.println("Cuidado, no es tipo de combustible del coche.");
+            System.err.println("Combustible erroneo.");
         }
-        System.err.println();    }
+    }
 
     /**
      * Starts driving the car
      * @param speed desired to drive
      * @param time in seconds
      */
-    public void startDriving (int speed, int time) {
+    public void startDriving (int speed, int time) throws Exception {
         // todo Create method to start driving
+        if(getLiters() > 0 && speed < getMaxSpeed() && status.equals("ON") && speed > 0){
+            System.out.println("Coche conduciendo");
+            this.speed = speed;
+            this.time = time;
+        } else {
+            throw new Exception("Datos introducidos erroneamente");
+        }
     }
 
     @Override
@@ -101,7 +108,11 @@ public class Truck extends Vehicle implements Cleanable {
 
     //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
     public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
+        if(maxSpeed > 0) {
+            this.maxSpeed = maxSpeed;
+        } else {
+            System.err.println("Error, no puede tener velocidad negativa");
+        }
     }
 
     public int getSpeed() {
@@ -114,6 +125,30 @@ public class Truck extends Vehicle implements Cleanable {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public GasolineVehicle getGas() {
+        return gas;
+    }
+
+    public void setGas(GasolineVehicle gas) {
+        this.gas = gas;
+    }
+
+    public int getLiters() {
+        return liters;
+    }
+
+    public void setLiters(int liters) {
+        this.liters = liters;
     }
 
     @Override

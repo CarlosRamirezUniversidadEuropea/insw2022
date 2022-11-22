@@ -19,11 +19,12 @@ public class Car extends Vehicle implements Cleanable {
     private Color color;
     private int maxSpeed;
     private int speed;
+    private int time;
     private Status status;
     private GasolineVehicle gas;
     private int liters;
 
-    public Car(BrandVehicle brand, Color color,int maxSpeed, BigDecimal price) {
+    public Car(BrandVehicle brand, Color color, int maxSpeed, BigDecimal price) {
         super(price);
         this.brand = brand;
         this.color = color;
@@ -36,18 +37,18 @@ public class Car extends Vehicle implements Cleanable {
         super(price);
     }
 
-    //todo javadoc
+    //Enciende el coche
     public void on() {
         this.status = ON;
     }
 
-    //todo javadoc
+    //Detiene el coche
     public void stop() {
         this.speed = 0;
         this.status = STOPED;
     }
 
-    //todo javadoc
+    //Velocidad que va el coche
     public void setSpeed(int speed) {
         this.speed = speed;
     }
@@ -58,11 +59,12 @@ public class Car extends Vehicle implements Cleanable {
      * @param liters number of liters
      */
     public void fillCombustible(GasolineVehicle gasoline, int liters) {
-        //todo Create method to fill car
+        //Rellena el coche de combustible, compara que el tipo de combustible que echas sea igual al que es, si no lo es te dice que el tipo de combustible es erroneo.
         if(gas.equals(gasoline)) {
             this.liters = liters;
+            System.out.println("Coche llenado.");
         } else {
-            System.err.println("Coche llenado.");
+            System.err.println("Combustible erroneo.");
         }
     }
 
@@ -71,8 +73,14 @@ public class Car extends Vehicle implements Cleanable {
      * @param speed desired to drive
      * @param time in seconds
      */
-    public void startDriving (int speed, int time) {
-
+    public void startDriving (int speed, int time) throws Exception{
+        if(getLiters() > 0 && speed < getMaxSpeed() && status.equals("ON") && speed > 0){
+            System.out.println("Coche conduciendo");
+            this.speed = speed;
+            this.time = time;
+        } else {
+            throw new Exception("Datos introducidos erroneamente");
+        }
     }
 
     @Override
@@ -119,6 +127,22 @@ public class Car extends Vehicle implements Cleanable {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public int getLiters() {
+        return liters;
+    }
+
+    public void setLiters(int liters) {
+        this.liters = liters;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 
     @Override
