@@ -1,32 +1,24 @@
 package com.ue.insw.proyecto.exercises.ej3polimorfismo;
 
-import com.ue.insw.proyecto.exercises.ej3polimorfismo.Shape;
-
 //todo extends shape
 public class Circle extends Shape{
+    private double radius;
 
-    public Circle(String color){
+    public Circle(String color, double radius){
         super(color);
+        this.radius = radius;
     }
 
     public double calculatePerimeter() {
-        double perimeter = 0, radius = 0;
-
-        perimeter = 2 * Math.PI * radius;
-
-        return perimeter;
+        return 2 * Math.PI * radius;
     }
 
     public double calculateArea() {
-        double area = 0, radius = 0;
-
-        area = Math.PI * (Math.pow(radius, 2));
-
-        return area;
+        return Math.PI * (Math.pow(radius, 2));
     }
 
     public String toString() {
-        return null;
+        return "Este circulo tiene radio de " +radius;
     }
 
 }

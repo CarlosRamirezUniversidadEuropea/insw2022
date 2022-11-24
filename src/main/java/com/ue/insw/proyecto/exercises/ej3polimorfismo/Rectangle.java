@@ -1,31 +1,24 @@
 package com.ue.insw.proyecto.exercises.ej3polimorfismo;
 
-import com.ue.insw.proyecto.exercises.ej3polimorfismo.Shape;
-
 //todo extends shape
 public class Rectangle extends Shape{
+    private double length, width;
 
-    public Rectangle(String color){
+    public Rectangle(String color, double length, double width){
         super(color);
+        this.length = length;
+        this.width = width;
     }
 
     public double calculatePerimeter() {
-        double perimeter = 0, width = 0, length = 0;
-
-        perimeter = (width * 2) + (length * 2);
-
-        return perimeter;
+        return (width * 2) + (length * 2);
     }
 
     public double calculateArea() {
-        double area = 0, width = 0, length = 0;
-
-        area = width * length;
-
-        return area;
+        return width * length;
     }
 
     public String toString() {
-        return null;
+        return "Este rectangulo tiene una base de " +length+ " y una altura de " +width;
     }
 }
