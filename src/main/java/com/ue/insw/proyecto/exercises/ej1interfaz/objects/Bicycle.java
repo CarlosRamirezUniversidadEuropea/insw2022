@@ -17,7 +17,6 @@ public class Bicycle extends Vehicle implements Cleanable{
     private int maxSpeed;
     private int speed;
     private int time;
-    private Status status;
 
     public Bicycle(BrandBicycle brand, Color color, int maxSpeed, BigDecimal price) {
         super(price);
@@ -25,23 +24,19 @@ public class Bicycle extends Vehicle implements Cleanable{
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
-        this.status = STOPED;
     }
     public Bicycle(BigDecimal price) {
         super(price);
     }
-    public void on() {
-        this.status = ON;
-    }
-    public void stop() {
-        this.speed = 0;
-        this.status = STOPED;
-    }
     public void setSpeed(int speed) {
-        this.speed = speed;
+        if (speed > 0) {
+            this.speed = speed;
+        } else {
+            System.err.println("Error, no puede tener velocidad negativa");
+        }
     }
     public void startDriving (int speed, int time) throws Exception{
-        if(speed < getMaxSpeed() && status.equals("ON") && speed > 0){
+        if(speed < getMaxSpeed() &&  speed > 0){
             System.out.println("Coche conduciendo");
             this.speed = speed;
             this.time = time;
@@ -83,14 +78,6 @@ public class Bicycle extends Vehicle implements Cleanable{
         return speed;
     }
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
     public int getTime() {
         return time;
     }
@@ -106,7 +93,6 @@ public class Bicycle extends Vehicle implements Cleanable{
                 ", color=" + color +
                 ", maxSpeed=" + maxSpeed +
                 ", speed=" + speed +
-                ", status=" + status +
                 '}';
     }
 }

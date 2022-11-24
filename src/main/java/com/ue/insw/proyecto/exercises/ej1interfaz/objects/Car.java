@@ -24,13 +24,15 @@ public class Car extends Vehicle implements Cleanable {
     private GasolineVehicle gas;
     private int liters;
 
-    public Car(BrandVehicle brand, Color color, int maxSpeed, BigDecimal price) {
+    public Car(BrandVehicle brand, Color color, int maxSpeed, BigDecimal price, int liters, GasolineVehicle gas) {
         super(price);
         this.brand = brand;
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
         this.status = STOPED;
+        this.liters = liters;
+        this.gas = gas;
     }
 
     public Car(BigDecimal price) {
@@ -50,7 +52,11 @@ public class Car extends Vehicle implements Cleanable {
 
     //Velocidad que va el coche
     public void setSpeed(int speed) {
-        this.speed = speed;
+        if (speed > 0) {
+            this.speed = speed;
+        } else {
+            System.err.println("Error, no puede tener velocidad negativa");
+        }
     }
 
     /**
@@ -61,8 +67,8 @@ public class Car extends Vehicle implements Cleanable {
     public void fillCombustible(GasolineVehicle gasoline, int liters) {
         //Rellena el coche de combustible, compara que el tipo de combustible que echas sea igual al que es, si no lo es te dice que el tipo de combustible es erroneo.
         if(gas.equals(gasoline)) {
-            this.liters = liters;
-            System.out.println("Coche llenado.");
+            this.liters += liters;
+            System.out.println("Coche llenado. Litros: " + getLiters());
         } else {
             System.err.println("Combustible erroneo.");
         }
@@ -74,10 +80,11 @@ public class Car extends Vehicle implements Cleanable {
      * @param time in seconds
      */
     public void startDriving (int speed, int time) throws Exception{
-        if(getLiters() > 0 && speed < getMaxSpeed() && status.equals("ON") && speed > 0){
+        if(getLiters() > 0 && speed < getMaxSpeed() && speed > 0){
             System.out.println("Coche conduciendo");
-            this.speed = speed;
-            this.time = time;
+            setSpeed(speed);
+            setTime(time);
+            on();
         } else {
             throw new Exception("Datos introducidos erroneamente");
         }
@@ -145,6 +152,14 @@ public class Car extends Vehicle implements Cleanable {
         this.time = time;
     }
 
+    public GasolineVehicle getGas() {
+        return gas;
+    }
+
+    public void setGas(GasolineVehicle gas) {
+        this.gas = gas;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
@@ -152,7 +167,10 @@ public class Car extends Vehicle implements Cleanable {
                 ", color=" + color +
                 ", maxSpeed=" + maxSpeed +
                 ", speed=" + speed +
+                ", time=" + time +
                 ", status=" + status +
+                ", gas=" + gas +
+                ", liters=" + liters +
                 '}';
     }
 }

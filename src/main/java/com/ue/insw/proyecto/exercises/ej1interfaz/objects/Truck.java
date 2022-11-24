@@ -21,13 +21,15 @@ public class Truck extends Vehicle implements Cleanable {
     private GasolineVehicle gas;
     private int liters;
 
-    public Truck(BrandTruck brand, Color color,int maxSpeed, BigDecimal price) {
+    public Truck(BrandTruck brand, Color color,int maxSpeed, BigDecimal price, int liters) {
         super(price);
         this.brand = brand;
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
         this.status = STOPED;
+        this.liters = liters;
+        this.gas = GasolineVehicle.DIESEL;
     }
 
     public Truck(BigDecimal price) {
@@ -47,7 +49,11 @@ public class Truck extends Vehicle implements Cleanable {
 
     //todo javadoc
     public void setSpeed(int speed) {
-        this.speed = speed;
+        if (speed > 0) {
+            this.speed = speed;
+        } else {
+            System.err.println("Error, no puede tener velocidad negativa");
+        }
     }
 
     /**
@@ -72,10 +78,11 @@ public class Truck extends Vehicle implements Cleanable {
      */
     public void startDriving (int speed, int time) throws Exception {
         // todo Create method to start driving
-        if(getLiters() > 0 && speed < getMaxSpeed() && status.equals("ON") && speed > 0){
-            System.out.println("Coche conduciendo");
-            this.speed = speed;
-            this.time = time;
+        if(getLiters() > 0 && speed < getMaxSpeed()  && speed > 0){
+            System.out.println("Tractpr conduciendo");
+            setSpeed(speed);
+            setTime(time);
+            on();
         } else {
             throw new Exception("Datos introducidos erroneamente");
         }
@@ -159,6 +166,9 @@ public class Truck extends Vehicle implements Cleanable {
                 ", maxSpeed=" + maxSpeed +
                 ", speed=" + speed +
                 ", status=" + status +
+                ", time=" + time +
+                ", gas=" + gas +
+                ", liters=" + liters +
                 '}';
     }
 }
