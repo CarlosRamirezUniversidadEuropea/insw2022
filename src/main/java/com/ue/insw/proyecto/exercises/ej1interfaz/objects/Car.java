@@ -21,7 +21,11 @@ public class Car extends Vehicle implements Cleanable {
     private int speed;
     private Status status;
 
-    public Car(Brand brand, Color color, int maxSpeed, BigDecimal price) {
+    private Gasoline gasoline;
+
+    private int litros;
+
+    public Car(Brand brand, Color color, int maxSpeed, BigDecimal price, int litros,  Gasoline gasoline) {
         super(price);
         this.brand = brand;
         this.color = color;
@@ -57,8 +61,12 @@ public class Car extends Vehicle implements Cleanable {
      */
     public void fillCombustible(Gasoline gasoline, int liters) {
         //todo Create method to fill car
+    if(this.gasoline.equals(gasoline)){
+        System.out.println("La gasolina es correcta");
+    }else{
+        System.out.println("La gasolina que le intentas poner es incorrecto");
+    }
 
-        }
     }
 
     /**
@@ -68,6 +76,11 @@ public class Car extends Vehicle implements Cleanable {
      */
     public void startDriving (int speed, int time) {
         // todo Create method to start driving
+        if(getLitros() >0&& speed<=getMaxSpeed()){
+            System.out.println("Coche conduciendo");
+        }else{
+            System.out.println("Coche no conduciendo");
+        }
     }
 
     @Override
@@ -97,7 +110,10 @@ public class Car extends Vehicle implements Cleanable {
 
     //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
     public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
+        if(maxSpeed>0){
+            this.maxSpeed = maxSpeed;
+        }
+        System.out.println("Error, la velocidad no puede ser negativa");
     }
 
     public int getSpeed() {
@@ -110,6 +126,22 @@ public class Car extends Vehicle implements Cleanable {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Gasoline getGasoline() {
+        return gasoline;
+    }
+
+    public void setGasoline(Gasoline gasoline) {
+        this.gasoline = gasoline;
+    }
+
+    public int getLitros() {
+        return litros;
+    }
+
+    public void setLitros(int litros) {
+        this.litros = litros;
     }
 
     @Override
