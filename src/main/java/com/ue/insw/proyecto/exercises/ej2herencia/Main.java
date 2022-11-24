@@ -8,14 +8,15 @@ public class Main {
 
         cat.speak();
         System.out.println("La edad del gato es: " +cat.getEdad());
-        System.out.println(cat);
+
+        System.out.println("");
 
         dog.speak();
         System.out.println("La edad del perro es: " +dog.getEdad());
-        System.out.println(dog);
+
+        System.out.println("");
 
         human.speak();
         System.out.println("La edad del humano es: " +human.getEdad());
-        System.out.println(human);
     }
 }
