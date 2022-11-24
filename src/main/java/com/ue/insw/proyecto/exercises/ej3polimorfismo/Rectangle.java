@@ -1,6 +1,6 @@
 package com.ue.insw.proyecto.exercises.ej3polimorfismo;
 
-public class Rectangle w Shape{
+public class Rectangle extends Shape{
     private double base;
     private double altura;
     private String color;
