@@ -4,14 +4,17 @@ public class Main {
     public static void main(String[] args) {
         Cat cat = new Cat("persa", "Javier");
         cat.setEdad(3);
+        cat.speak();
         System.out.println(cat);
 
         Dog dog = new Dog("Husky", "Kaiser");
-        cat.setEdad(4);
+        dog.setEdad(4);
+        dog.speak();
         System.out.println(dog);
 
         Human human = new Human("Española", "Luis");
-        cat.setEdad(19);
+        human.setEdad(19);
+        human.speak();
         System.out.println(human);
     }
 }
