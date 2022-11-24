@@ -2,7 +2,14 @@ package com.ue.insw.proyecto.exercises.ej3polimorfismo;
 import java.lang.Math.*;
 
 public class Circle extends Shape{
-    double radio;
+    private double radio;
+    private String color;
+
+    public Circle(double radio, String color) {
+        this.radio = radio;
+        this.color = color;
+    }
+
     @Override
     public double calculatePerimeter() {
         return 2 * radio * Math.PI;
@@ -15,9 +22,7 @@ public class Circle extends Shape{
 
     @Override
     public String toString() {
-        return "Circle{" +
-                "radio=" + radio +
-                '}';
+        return "El círculo tiene un radio de " + radio;
     }
 
     public double getRadio() {
