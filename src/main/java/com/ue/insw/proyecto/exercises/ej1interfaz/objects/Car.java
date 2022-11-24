@@ -49,7 +49,8 @@ public class Car extends Vehicle implements Cleanable {
     //todo javadoc
 
     /**
-     *
+     * When the speed is 0 the status
+     * of the vehicle is "STOPED"
      */
     public void stop() {
         this.speed = 0;
@@ -59,7 +60,7 @@ public class Car extends Vehicle implements Cleanable {
     //todo javadoc
 
     /**
-     *
+     * Sets the speed
      * @param speed
      */
     public void setSpeed(int speed) {
@@ -106,10 +107,11 @@ public class Car extends Vehicle implements Cleanable {
      */
     public void startDriving (int speed, int time) {
         // todo Create method to start driving
-
+        if(speed == 0 && time == 0){
+          System.out.print("");
+        }
     }
 
-    @Override
     public void clean() {
         System.out.println("Coche limpiándose");
     }
@@ -136,7 +138,11 @@ public class Car extends Vehicle implements Cleanable {
 
     //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
     public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
+        if(maxSpeed >= 0) {
+            this.maxSpeed = maxSpeed;
+        } else {
+            System.out.println("La velocidad tiene que ser un número positivo");
+        }
     }
 
     public int getSpeed() {
@@ -151,7 +157,6 @@ public class Car extends Vehicle implements Cleanable {
         this.status = status;
     }
 
-    @Override
     public String toString() {
         return "Car{" +
                 "brand=" + brand +
