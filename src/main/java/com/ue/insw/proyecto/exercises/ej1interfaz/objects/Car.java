@@ -37,16 +37,9 @@ public class Car extends Vehicle implements Cleanable {
         super(price);
     }
 
-    //todo javadoc
-
-    /**
-     *
-     */
     public void on() {
         this.status = ON;
     }
-
-    //todo javadoc
 
     /**
      * When the speed is 0 the status
@@ -56,8 +49,6 @@ public class Car extends Vehicle implements Cleanable {
         this.speed = 0;
         this.status = STOPED;
     }
-
-    //todo javadoc
 
     /**
      * Sets the speed
@@ -108,7 +99,11 @@ public class Car extends Vehicle implements Cleanable {
     public void startDriving (int speed, int time) {
         // todo Create method to start driving
         if(speed == 0 && time == 0){
-          System.out.print("");
+          System.out.print("Start");
+        } else if(speed == 0 && time != 0){
+            System.out.print("Stopped");
+        } else {
+            System.out.print("Driving");
         }
     }
 
