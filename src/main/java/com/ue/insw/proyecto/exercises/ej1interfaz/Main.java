@@ -2,12 +2,10 @@ package com.ue.insw.proyecto.exercises.ej1interfaz;
 
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Brand;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Color;
-import com.ue.insw.proyecto.exercises.ej1interfaz.objects.Bicycle;
 import com.ue.insw.proyecto.exercises.ej1interfaz.objects.Car;
 import com.ue.insw.proyecto.exercises.ej1interfaz.objects.Truck;
 
 import java.math.BigDecimal;
-
 public class Main {
 
     public static void main(String[] args) {
