@@ -1,8 +1,8 @@
 package com.ue.insw.proyecto.exercises.ej1interfaz.objects;
 
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Brand;
+import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.BrandVehicle;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Color;
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Gasoline;
+import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.GasolineVehicle;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status;
 import com.ue.insw.proyecto.exercises.ej1interfaz.interfaces.Cleanable;
 
@@ -15,69 +15,78 @@ import static com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status.STOPE
 //todo implementar Cleanable
 public class Car extends Vehicle implements Cleanable {
 
-    private Brand brand;
+    private BrandVehicle brand;
     private Color color;
     private int maxSpeed;
     private int speed;
+    private int time;
     private Status status;
+    private GasolineVehicle gas;
+    private int liters;
 
-    public Car(Brand brand, Color color, int maxSpeed, BigDecimal price) {
+    public Car(BrandVehicle brand, Color color, int maxSpeed, BigDecimal price, int liters, GasolineVehicle gas) {
         super(price);
         this.brand = brand;
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
         this.status = STOPED;
+        this.liters = liters;
+        this.gas = gas;
     }
 
     public Car(BigDecimal price) {
         super(price);
     }
 
-    //todo javadoc
     public void on() {
         this.status = ON;
     }
 
-    //todo javadoc
+
     public void stop() {
         this.speed = 0;
         this.status = STOPED;
     }
 
-    //todo javadoc
     public void setSpeed(int speed) {
-        this.speed = speed;
+        if (speed > 0) {
+            this.speed = speed;
+        } else {
+            System.err.println("Error, no puede tener velocidad negativa");
+        }
     }
 
-    /**
-     * fills the car with gasoline
-     * @param gasoline type of gas
-     * @param liters number of liters
-     */
-    public void fillCombustible(Gasoline gasoline, int liters) {
-        //todo Create method to fill car
+    public void fillCombustible(GasolineVehicle gasoline, int liters) {
+        if(gas.equals(gasoline)) {
+            this.liters += liters;
+            System.out.println("Tanque de coche rellenado. Litros: " + getLiters());
+        } else {
+            System.err.println("Combustible erroneo.");
+        }
     }
 
-    /**
-     * Starts driving the car
-     * @param speed desired to drive
-     * @param time in seconds
-     */
-    public void startDriving (int speed, int time) {
-        // todo Create method to start driving
+    public void startDriving (int speed, int time) throws Exception{
+        if(getLiters() > 0 && speed < getMaxSpeed() && speed > 0){
+            System.out.println("Coche acelerando");
+            setSpeed(speed);
+            setTime(time);
+            on();
+        } else {
+            throw new Exception("Datos introducidos erroneos");
+        }
     }
 
     @Override
     public void clean() {
-        System.out.println("Coche limpiándose");
+        System.out.println("Limpiando coche");
     }
 
-    public Brand getBrand() {
+    public BrandVehicle getBrand() {
         return brand;
     }
 
-    public void setBrand(Brand brand) {
+    public void setBrand(BrandVehicle brand) {
         this.brand = brand;
     }
 
@@ -95,7 +104,11 @@ public class Car extends Vehicle implements Cleanable {
 
     //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
     public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
+        if(maxSpeed > 0) {
+            this.maxSpeed = maxSpeed;
+        } else {
+            System.err.println("Error, no puede tener velocidad negativa");
+        }
     }
 
     public int getSpeed() {
@@ -110,14 +123,41 @@ public class Car extends Vehicle implements Cleanable {
         this.status = status;
     }
 
+    public int getLiters() {
+        return liters;
+    }
+
+    public void setLiters(int liters) {
+        this.liters = liters;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public GasolineVehicle getGas() {
+        return gas;
+    }
+
+    public void setGas(GasolineVehicle gas) {
+        this.gas = gas;
+    }
+
     @Override
     public String toString() {
-        return "Car{" +
-                "brand=" + brand +
-                ", color=" + color +
-                ", maxSpeed=" + maxSpeed +
-                ", speed=" + speed +
-                ", status=" + status +
-                '}';
+        return "Datos del coche [" +
+                "Marca=" + brand +
+                ", Color=" + color +
+                ", MaxSpeed=" + maxSpeed +
+                ", Speed=" + speed +
+                ", Time=" + time +
+                ", Status=" + status +
+                ", Gas=" + gas +
+                ", Litros=" + liters +
+                ']';
     }
 }
