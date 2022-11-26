@@ -20,14 +20,18 @@ public class Car extends Vehicle implements Cleanable {
     private int maxSpeed;
     private int speed;
     private Status status;
+    private Gasoline gasoline;
+    private double liters;
 
-    public Car(Brand brand, Color color, int maxSpeed, BigDecimal price) {
+    public Car(Brand brand, Color color, int maxSpeed, BigDecimal price, Gasoline gasoline, int liters) {
         super(price);
         this.brand = brand;
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
         this.status = STOPED;
+        this.gasoline = gasoline;
+        this.liters = liters;
     }
 
     public Car(BigDecimal price) {
@@ -52,20 +56,38 @@ public class Car extends Vehicle implements Cleanable {
 
     /**
      * fills the car with gasoline
+     *
      * @param gasoline type of gas
-     * @param liters number of liters
+     * @param liters   number of liters
      */
     public void fillCombustible(Gasoline gasoline, int liters) {
         //todo Create method to fill car
+        if (liters > 0 && (gasoline == this.gasoline)) {
+            System.out.println("Perfecto");
+        } else if (liters >= 0 && (gasoline != this.gasoline)) {
+            System.out.println("No es el tipo de gasolina correcto");
+        } else if (liters == 0 && (gasoline == this.gasoline)) {
+            System.out.println("Sin gasolina");
+        } else {
+            System.out.println("Error");
+        }
     }
 
     /**
      * Starts driving the car
+     *
      * @param speed desired to drive
-     * @param time in seconds
+     * @param time  in seconds
      */
-    public void startDriving (int speed, int time) {
+    public void startDriving(int speed, int time) {
         // todo Create method to start driving
+        if (speed == 0 && time == 0) {
+            System.out.println("Start");
+        } else if (speed == 0 && time >= 0) {
+            System.out.println("Stop");
+        } else {
+            System.out.println("Drive");
+        }
     }
 
     @Override
@@ -95,29 +117,34 @@ public class Car extends Vehicle implements Cleanable {
 
     //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
     public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
+        if (maxSpeed >= 0) {
+            this.maxSpeed = maxSpeed;
+        } else {
+            System.out.println("No puede ser menor que 0.");
+        }
     }
 
-    public int getSpeed() {
-        return speed;
-    }
+        public int getSpeed () {
+            return speed;
+        }
 
-    public Status getStatus() {
-        return status;
-    }
+        public Status getStatus () {
+            return status;
+        }
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
+        public void setStatus (Status status){
+            this.status = status;
+        }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "brand=" + brand +
-                ", color=" + color +
-                ", maxSpeed=" + maxSpeed +
-                ", speed=" + speed +
-                ", status=" + status +
-                '}';
-    }
+        @Override
+        public String toString () {
+            String sRet = "Bicycle: ";
+            sRet += "Brand: " + brand + "\n";
+            sRet += "Color: " + color + "\n";
+            sRet += "Max Speed : " + maxSpeed + "\n";
+            sRet += "Speed: " + speed + "\n";
+            sRet += "Status: " + status + "\n";
+            return sRet;
+        }
 }
+
