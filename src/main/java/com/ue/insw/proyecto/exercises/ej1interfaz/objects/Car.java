@@ -21,6 +21,13 @@ public class Car extends Vehicle implements Cleanable {
     private int speed;
     private Status status;
 
+    /**
+     *
+     * @param brand
+     * @param color
+     * @param maxSpeed
+     * @param price
+     */
     public Car(Brand brand, Color color, int maxSpeed, BigDecimal price) {
         super(price);
         this.brand = brand;
@@ -35,17 +42,30 @@ public class Car extends Vehicle implements Cleanable {
     }
 
     //todo javadoc
+
+    /**
+     *  on empezando
+     */
     public void on() {
         this.status = ON;
     }
 
     //todo javadoc
+
+    /**
+     *  stop parando
+     */
+
     public void stop() {
         this.speed = 0;
         this.status = STOPED;
     }
 
     //todo javadoc
+
+    /**
+     *  set speed para entrar speed
+     */
     public void setSpeed(int speed) {
         this.speed = speed;
     }
@@ -95,7 +115,11 @@ public class Car extends Vehicle implements Cleanable {
 
     //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
     public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
+        if (maxSpeed > 0) {
+            this.maxSpeed = maxSpeed;
+        }else {
+            System.out.println("MAX SPEED MENOR QUE 0");
+        }
     }
 
     public int getSpeed() {
