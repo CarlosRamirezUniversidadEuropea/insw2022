@@ -21,8 +21,9 @@ public class Car extends Vehicle implements Cleanable {
     private int speed;
     private Status status;
 
+    private int liters;
     private Gasoline gasoline;
-
+    private int litrosAñadidos;
     private int litrosActuales;
 
 
@@ -39,18 +40,31 @@ public class Car extends Vehicle implements Cleanable {
         super(price);
     }
 
+
     //todo javadoc
+    /**
+     * Gets the car status
+     * @param status desired to know if it is stoped or not
+     */
     public void on() {
         this.status = ON;
     }
 
     //todo javadoc
+    /**
+     * weather the car is stoped or not
+     * @param stop to check if the car status stoped or driving
+     */
     public void stop() {
         this.speed = 0;
         this.status = STOPED;
     }
 
     //todo javadoc
+    /**
+     * Set up the car speed
+     * @param speed desired to drive
+     */
     public void setSpeed(int speed) {
         this.speed = speed;
     }
@@ -60,13 +74,17 @@ public class Car extends Vehicle implements Cleanable {
      * @param gasoline type of gas
      * @param liters number of liters
      */
-    public void fillCombustible(Gasoline gasoline, int liters) throws Exception {
+    public void fillCombustible(Gasoline gasoline) throws Exception {
         if (this.gasoline == gasoline) {
-            this.litrosActuales=liters;
-            System.out.println(" Has Rellenado tu coche con existo ");
+            liters = (litrosAñadidos + litrosActuales);
+            System.out.println(" Has rellenado " + liters + " Litros con exito :)");
+
         } else {
             throw new Exception("El combustible no coincide con lo del coche ");
         }
+
+
+
         //todo Create method to fill car
     }
 
@@ -75,8 +93,23 @@ public class Car extends Vehicle implements Cleanable {
      * @param speed desired to drive
      * @param time in seconds
      */
-    public void startDriving (int speed, int time) {
-        // todo Create method to start driving
+    public void startDriving (int speed, int time, int gasoline) throws Exception {
+
+    if (liters < 0){
+        System.out.println("Comprobando si el coche tiene Combustible");
+        System.out.println("El coche tiene: "+ liters + " Litros ");
+
+    }else {
+        throw new Exception ("El coche no tiene Combustible Porfavor inserte Combustible para arrancar el coche");
+    }
+
+    if (speed >= maxSpeed) {
+        System.out.println("Velocidad Correcta :) ");
+    }else{
+       throw new Exception ("Velocidad Alta :( porfavor baje la velocidad");
+    }
+
+     // todo Create method to start driving
     }
 
     @Override
@@ -105,9 +138,16 @@ public class Car extends Vehicle implements Cleanable {
     }
 
     //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
-    public void setMaxSpeed(int maxSpeed) {
+    public void setMaxSpeed(int maxSpeed) throws Exception {
         this.maxSpeed = maxSpeed;
+        if (maxSpeed <0 ){
+            throw new Exception("El numero tiene que ser positivo");
+        }else{
+            this.maxSpeed = maxSpeed;
+            System.out.println("La velocidad se ha modificado");
+        }
     }
+
 
     public int getSpeed() {
         return speed;
@@ -120,8 +160,6 @@ public class Car extends Vehicle implements Cleanable {
     public void setStatus(Status status) {
         this.status = status;
     }
-
-    public enum gasoline (Gasoline gasoline) {}
 
     @Override
     public String toString() {

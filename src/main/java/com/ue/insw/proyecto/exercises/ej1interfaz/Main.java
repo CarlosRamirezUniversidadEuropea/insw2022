@@ -27,7 +27,7 @@ public class Main {
         System.out.println(bmx.toString());
         bmx.clean();
 
-        Truck volvo = new Truck(TruckBrand.Volvo, Color.BLACK, 100, new BigDecimal(120));
+        Truck volvo = new Truck(TruckBrand.Volvo, Color.BLACK, 100, new BigDecimal(120000));
         System.out.println(volvo.getPrice());
         System.out.println(volvo.getBrand());
         System.out.println(volvo.getColor());
