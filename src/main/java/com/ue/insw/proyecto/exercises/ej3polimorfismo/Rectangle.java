@@ -1,21 +1,17 @@
 package com.ue.insw.proyecto.exercises.ej3polimorfismo;
 
-//todo extends shape
-public class Rectangle extends Shape {
+import com.ue.insw.proyecto.exercises.ej3polimorfismo.Shape;
 
+public class Rectangle extends Shape{
     private double lado1;
     private double lado2;
-    private String color;
 
-    public Rectangle(double lado1, double lado2, String color) {
-        this.lado1 = lado1;
-        this.lado2 = lado2;
-        this.color = color;
-    }
+    private String color;
 
     public Rectangle(double lado1, double lado2) {
         this.lado1 = lado1;
         this.lado2 = lado2;
+        this.color = "white";
     }
 
     public double getLado1() {
