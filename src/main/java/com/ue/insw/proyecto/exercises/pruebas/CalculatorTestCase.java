@@ -1,6 +1,6 @@
 package com.ue.insw.proyecto.exercises.pruebas;
 
-//todo importar Junit en maven y ejecutar test
+/*todo importar Junit en maven y ejecutar test
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -68,4 +68,4 @@ class CalculatorTestCase {
                 "Regular concatenation should work");  
     }
 
-}
+}*/
