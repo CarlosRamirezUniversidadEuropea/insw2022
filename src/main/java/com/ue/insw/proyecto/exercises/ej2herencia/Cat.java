@@ -4,7 +4,11 @@ public class Cat extends Animal implements Speak{
     public Cat(String raza, String nombre) {
         super(raza, nombre);
     }
-    // todo extends Animal implements speak, override methods
+
+    @Override
+    public String toString() {
+        return "Cat{}";
+    }
 
     @Override
     public void speak() {
