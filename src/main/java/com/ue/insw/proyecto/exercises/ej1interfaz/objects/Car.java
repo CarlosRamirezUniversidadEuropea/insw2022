@@ -20,47 +20,44 @@ public class Car extends Vehicle implements Cleanable {
     private int maxSpeed;
     private int speed;
     private Status status;
+    private Gasoline gasoline;
+    private int litrosActuales;
+
+    private int time;
 
     public Car(Brand brand, Color color, int maxSpeed, BigDecimal price) {
-        super(price);
+        super(price, color);
         this.brand = brand;
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
         this.status = STOPED;
+        this.litrosActuales = litrosActuales;
     }
 
-    public Car(BigDecimal price) {
-        super(price);
+    public Car(BigDecimal price, Color color) {
+        super(price, color);
     }
-
-    /**
-     * Se asigna el precio del coche
-     * @param price
-     */
 
     //todo javadoc
+    /** Starts the car
+     * status = ON
+     */
     public void on() {
         this.status = ON;
     }
-
-    /**
-     * Cuando el coche se arranca
-     * @param status es cambiado a 'ON'
+    /** Para el coche
+     * Velocidad se vuelve 0
+     * Status = STOPED
      */
-
     //todo javadoc
     public void stop() {
         this.speed = 0;
         this.status = STOPED;
     }
 
-    /**
-     * Car stops driving
-     * @param speed se reduce a 0
-     * @param status se cambia a 'STOPED'
-     */
-
+    /** Sets the speed of the car
+     * Se obtiene variable speed */
     //todo javadoc
     public void setSpeed(int speed) {
         this.speed = speed;
@@ -71,9 +68,12 @@ public class Car extends Vehicle implements Cleanable {
      * @param gasoline type of gas
      * @param liters number of liters
      */
-    public void fillCombustible(Gasoline gasoline, int liters) {
-        //todo Create method to fill car
-        System.out.println("Hemos llenado el tanque de gasolina del tipo " + gasoline + "con " + liters + "litros.");
+    public void fillCombustible(Gasoline gasoline, int liters) throws Exception {
+        if (gasoline == this.gasoline){
+            System.out.println("Coche lleno");
+        }else {
+            throw new Exception("Cantidad de gasolina incorrecta");
+        }
     }
 
     /**
@@ -81,10 +81,14 @@ public class Car extends Vehicle implements Cleanable {
      * @param speed desired to drive
      * @param time in seconds
      */
-    public void startDriving (int speed, int time) {
-        // todo Create method to start driving
-        this.speed > maxSpeed;
-        status= ON;
+    public void startDriving (int speed, int time) throws Exception {
+        if (getLitrosActuales() > 0 && (speed < getMaxSpeed())){
+            System.out.println("Se está siendo conducido");
+            this.speed = speed;
+            this.time = time;
+        } else {
+            throw new Exception("Datos introducidos incorrectamente");
+        }
     }
 
     @Override
@@ -106,17 +110,19 @@ public class Car extends Vehicle implements Cleanable {
 
     public void setColor(Color color) {
         this.color = color;
-        System.out.println("El color del coche es: " +color);
     }
-
 
     public int getMaxSpeed() {
         return maxSpeed;
     }
 
     //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
+    public void setMaxSpeed(int maxSpeed) throws Exception {
+        if (maxSpeed > 0) {
+            this.maxSpeed = maxSpeed;
+        }else {
+            throw new Exception("Velocidad no valida");
+        }
     }
 
     public int getSpeed() {
@@ -129,6 +135,30 @@ public class Car extends Vehicle implements Cleanable {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Gasoline getGasoline() {
+        return gasoline;
+    }
+
+    public void setGasoline(Gasoline gasoline) {
+        this.gasoline = gasoline;
+    }
+
+    public int getLitrosActuales() {
+        return litrosActuales;
+    }
+
+    public void setLitrosActuales(int litrosActuales) {
+        this.litrosActuales = litrosActuales;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 
     @Override
