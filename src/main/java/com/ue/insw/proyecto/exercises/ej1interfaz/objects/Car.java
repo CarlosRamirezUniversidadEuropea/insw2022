@@ -20,6 +20,11 @@ public class Car extends Vehicle implements Cleanable {
     private int maxSpeed;
     private int speed;
     private Status status;
+    private Gasoline gasoline;
+    private int liters;
+    private int Combustible;
+    private int ltahora;
+    private int ltañadidos;
 
     public Car(Brand brand, Color color, int maxSpeed, BigDecimal price) {
         super(price);
@@ -28,7 +33,7 @@ public class Car extends Vehicle implements Cleanable {
         this.maxSpeed = maxSpeed;
         this.speed = 0;
         this.status = STOPED;
-    }
+           }
 
     public Car(BigDecimal price) {
         super(price);
@@ -36,6 +41,7 @@ public class Car extends Vehicle implements Cleanable {
 
     //todo javadoc
     public void on() {
+
         this.status = ON;
     }
 
@@ -50,22 +56,80 @@ public class Car extends Vehicle implements Cleanable {
         this.speed = speed;
     }
 
-    /**
-     * fills the car with gasoline
-     * @param gasoline type of gas
-     * @param liters number of liters
-     */
-    public void fillCombustible(Gasoline gasoline, int liters) {
-        //todo Create method to fill car
+    public Gasoline getGasoline() {
+        return gasoline;
+    }
+
+    public void setGasoline(Gasoline gasoline) {
+        this.gasoline = gasoline;
+    }
+
+    public int getLiters() {
+        return liters;
+    }
+
+    public void setLiters(int liters) {
+        this.liters = liters;
+    }
+
+    public int getCombustible() {
+        return Combustible;
+    }
+
+    public void setCombustible(int combustible) {
+        Combustible = combustible;
+    }
+
+    public int getLtahora() {
+        return ltahora;
+    }
+
+    public void setLtahora(int ltahora) {
+        this.ltahora = ltahora;
+    }
+
+    public int getLtañadidos() {
+        return ltañadidos;
+    }
+
+    public void setLtañadidos(int ltañadidos) {
+        this.ltañadidos = ltañadidos;
     }
 
     /**
-     * Starts driving the car
-     * @param speed desired to drive
-     * @param time in seconds
+     * fills the car with gasoline
+     *
+     * @param gasoline type of gas
+     * @param liters   number of liters
+     * @return
      */
-    public void startDriving (int speed, int time) {
-        // todo Create method to start driving
+
+
+    public double fillCombustible(Gasoline gasoline, int liters) throws Exception {
+        //todo Create method to fill car
+        if (this.gasoline == gasoline){
+            liters=ltahora+ltañadidos;
+            System.out.println("Haz ingresado "+ ltañadidos+"litros");
+            System.out.println("Actualmete tieens "+ liters+"litros");
+        } else {
+            System.out.println("No se a podido ingresar gasolina");
+        }
+
+        return 0;
+    }
+
+
+    public double startDriving (int speed, int timen, int gasolina) throws Exception {
+        if(liters==0||liters>2){
+            System.out.println("El coche tiene "+liters+" litros, porfavor recargar combustible");
+            } else {
+            throw new Exception("El coche aun tiene combustible, no hace falta recargar"); }
+        if(speed>maxSpeed) {
+            System.out.println("Por favor, baje la velocidad");
+            }else {
+            throw new Exception("La velocidad es la correcta");
+        }
+        return 0;
     }
 
     @Override
@@ -94,8 +158,14 @@ public class Car extends Vehicle implements Cleanable {
     }
 
     //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
-    public void setMaxSpeed(int maxSpeed) {
+    public void setMaxSpeed(int maxSpeed) throws Exception {
         this.maxSpeed = maxSpeed;
+        if(maxSpeed>0){
+            System.out.println("La velocidad maxima ingresada ingreso con exito.");
+        } else {
+
+            throw new Exception("La maxima velocidad debe de ser positiva");
+        }
     }
 
     public int getSpeed() {
