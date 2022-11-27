@@ -10,9 +10,6 @@ import java.math.BigDecimal;
 
 import static com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status.ON;
 import static com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status.STOPED;
-
-//todo extender de Vehicle
-//todo implementar Cleanable
 public class Car extends Vehicle implements Cleanable {
 
     private Brand brand;
@@ -34,18 +31,25 @@ public class Car extends Vehicle implements Cleanable {
         super(price);
     }
 
-    //todo javadoc
+    /**
+     * Encender el coche
+     */
     public void on() {
         this.status = ON;
     }
 
-    //todo javadoc
+    /**
+     * Parar el coche
+     */
     public void stop() {
         this.speed = 0;
         this.status = STOPED;
     }
 
-    //todo javadoc
+    /**
+     * Setear la velocidad
+     * @param speed velocidad
+     */
     public void setSpeed(int speed) {
         this.speed = speed;
     }
@@ -55,17 +59,34 @@ public class Car extends Vehicle implements Cleanable {
      * @param gasoline type of gas
      * @param liters number of liters
      */
-    public void fillCombustible(Gasoline gasoline, int liters) {
-        //todo Create method to fill car
+    public void fillCombustible(Gasoline gasoline, int liters) throws Exception {
+        Gasoline gasolineType = null;
+        int capacity = 0;
+        if (gasolineType == gasoline){
+            throw new Exception("Tipo de gasolina introducido incorrecto.");
+        }
+        else{
+            System.out.println("Ha seleccionado "+ gasoline);
+            if(capacity<liters || liters<0){
+                throw new Exception("No puede echar esa cantidad de gasolina.");
+            }
+            else{
+                System.out.println("Ha repostado "+ liters);
+            }
+        }
     }
 
     /**
      * Starts driving the car
      * @param speed desired to drive
-     * @param time in seconds
+     * @param capacity in liters
      */
-    public void startDriving (int speed, int time) {
-        // todo Create method to start driving
+    public void startDriving (int speed, int capacity) throws Exception {
+        if(capacity<0 && speed<0 && speed>maxSpeed){
+            throw new Exception("Velocidad o gasolina incorrecta.");
+        }else{
+            System.out.println("El coche está en marcha.");
+        }
     }
 
     @Override
@@ -93,9 +114,14 @@ public class Car extends Vehicle implements Cleanable {
         return maxSpeed;
     }
 
-    //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
-    public void setMaxSpeed(int maxSpeed) {
+    public void setMaxSpeed(int maxSpeed) throws Exception{
         this.maxSpeed = maxSpeed;
+        if (maxSpeed>=0){
+            System.out.println("Velocidad máxima seteada correctamente. ");
+
+        }else{
+            throw new Exception("Error. Velocidad incorrecta");
+        }
     }
 
     public int getSpeed() {
