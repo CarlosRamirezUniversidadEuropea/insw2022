@@ -14,5 +14,6 @@ public class Main {
         DecimalFormat df = new DecimalFormat("0.000");
         System.out.println("Área: " + circle.calculateArea());
         System.out.println("Perímetro: " + Math.round(circle.calculatePerimeter()));
+        System.out.println(circle);
     }
 }

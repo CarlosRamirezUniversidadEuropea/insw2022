@@ -30,6 +30,6 @@ public class Circle extends Shape {
 
     @Override
     public String toString() {
-        return null;
+        return "Este circulo tiene un radio de " + radio;
     }
 }
