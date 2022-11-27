@@ -65,6 +65,14 @@ public class Rectangle extends Shape {
         return ladoCorto * ladoLargo;
     }
 
+    public double calculatePerimeter() {
+        return 0;
+    }
+
+    public double calculateArea() {
+        return 0;
+    }
+
     @Override
     public String toString() {
         return "Rectangle{" +

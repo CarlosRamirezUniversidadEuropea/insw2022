@@ -4,75 +4,83 @@ package com.ue.insw.proyecto.exercises.ej3polimorfismo;
 public class Circle extends Shape {
     private String color ;
 
-    private int lado1Largo;
+    private int radio;
 
-    private int lado1Corto;
-
-    public abstract double calculetPerimeter;
-
-    public abstract double calculetArea;
+    private double pi;
 
 
 
 
-    public Rectangle (String color, int lado1Largo, int lado1Corto){
+
+
+    public Circle (String color, int radio, double pi){
         this.color=color;
-        this.lado1Largo=lado1Largo;
-        this.lado1Corto=lado1Corto;
+        this.radio=radio;
+        this.pi=3.1415;
 
 
     }
 
     public String getColor(){
-        return Color;
+        return color;
     }
 
     public void setColor(String color){
         this.color=color;
     }
 
-    public int getLado1Largo(){
-        return lado1Largo;
+    public int getRadio(){
+        return radio;
     }
 
-    public void setLado1Largo(int lado1Largo) {
-        this.lado1Largo = lado1Largo;
+    public void setRadio(int radio) {
+        this.radio = radio;
     }
 
-    public int getLado1Corto() {
-        return lado1Corto;
+    public double getPi() {
+        return pi;
     }
 
-    public void setLado1Corto(int lado1Corto) {
-        this.lado1Corto = lado1Corto;
+    public void setPi(double pi) {this.pi =pi ;}
+
+    public getCalculetPerimeter() {
+
+        return pi * 2 * radio;
     }
 
-    public double getCalculetPerimeter() {
-        return lado1Largo * 2 + lado1Corto * 2 ;
+
+    public double  CalculetArea() {
+        return pi * (radio * radio;
     }
 
-    public void setCalculetPerimeter(double calculetPerimeter) {
-        this.calculetPerimeter = calculetPerimeter;
+    public double getcalculatePerimeter() {
+        return 0;
     }
 
-    public void setCalculetArea(double calculetArea) {
-        this.calculetArea = calculetArea;
+    public double calculatePerimeter() {
+        return 0;
     }
 
-    public double getCalculetArea() {
-        return lado1Corto * lado1Largo;
+    public double calculateArea() {
+        return 0;
     }
 
-    @Override
     public String toString() {
-        return "Rectangle{" +
-                "color=" + color
-        "ladoLargo= " lado1Largo
-        "ladoCorto=" + lado1Corto
-        "calculetPerimeter=" + calculetPerimeter
-        "caluletArea= " + calculetArea
-        "}";
+        return null;
     }
+
+
+    // @Override
+    //public String toString() {
+      //  return "Rectangle{" +
+        //        "color=" + color
+          //      "radio= "
+            //    "ladoCorto=" + lado1Corto
+              //  "calculetPerimeter=" + calculetPerimeter
+                //"caluletArea= " + calculetArea
+                //"}";
+   // }
+
 
 
 }
