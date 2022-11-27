@@ -18,6 +18,13 @@ public class Truck extends Vehicle implements Cleanable{
         private int speed;
         private Status status;
 
+        private int liters;
+        private int litrosActuales;
+        private int litrosAñadidos;
+        private Gasoline gasoline;
+        private int cargaKilos;
+        private int kilosActuales;
+
         public Truck(TruckBrand brand, Color color, int maxSpeed, BigDecimal price) {
             super(price);
             this.brand = brand;
@@ -32,17 +39,29 @@ public class Truck extends Vehicle implements Cleanable{
         }
 
         //todo javadoc
+    /**
+     * Gets the car status
+     * @param status desired to know if it is stoped or not
+     */
         public void on() {
             this.status = ON;
         }
 
         //todo javadoc
+    /**
+     * weather the car is stoped or not
+     * @param stop to check if the car status stoped or driving
+     */
         public void stop() {
             this.speed = 0;
             this.status = STOPED;
         }
 
         //todo javadoc
+    /**
+     * Set up the car speed
+     * @param speed desired to drive
+     */
         public void setSpeed(int speed) {
             this.speed = speed;
         }
@@ -52,7 +71,15 @@ public class Truck extends Vehicle implements Cleanable{
          * @param gasoline type of gas
          * @param liters number of liters
          */
-        public void fillCombustible(Gasoline gasoline, int liters) {
+        public void fillCombustible(Gasoline gasoline) throws Exception {
+            if (this.gasoline == gasoline) {
+                liters = (litrosAñadidos + litrosActuales);
+                System.out.println(" Has rellenado " + liters + " Litros con exito :)");
+
+            } else {
+                throw new Exception("El combustible no coincide con lo del coche ");
+            }
+
             //todo Create method to fill car
         }
 
@@ -61,7 +88,16 @@ public class Truck extends Vehicle implements Cleanable{
          * @param speed desired to drive
          * @param time in seconds
          */
-        public void startDriving (int speed, int time) {
+        public void startDriving (int speed, int time) throws Exception {
+
+            if (liters < 0){
+                System.out.println("Comprobando si el coche tiene Combustible");
+                System.out.println("El coche tiene: "+ liters + " Litros ");
+
+            }else {
+                throw new Exception ("El coche no tiene Combustible Porfavor inserte Combustible para arrancar el coche");
+            }
+
             // todo Create method to start driving
         }
 
@@ -111,6 +147,16 @@ public class Truck extends Vehicle implements Cleanable{
 
         public void setStatus(Status status) {
             this.status = status;
+        }
+
+        public void maxKilosSoportables(int maxKilos)throws Exception {
+            if(cargaKilos >= 32000){
+                kilosActuales = (maxKilos - cargaKilos);
+
+                System.out.println("El peso de la carga es: " + kilosActuales );
+            }else{
+                throw new Exception("El vehiculo ha superado los kilos maximos soportables porfavor Disminuye la carga ");
+            }
         }
 
         @Override

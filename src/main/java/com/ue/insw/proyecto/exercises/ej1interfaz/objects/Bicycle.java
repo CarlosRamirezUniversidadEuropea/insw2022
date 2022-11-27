@@ -85,8 +85,16 @@ public class Bicycle extends Vehicle implements Cleanable{
         }
 
         //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
-        public void setMaxSpeed(int maxSpeed) {
+
+        public void setMaxSpeed(int maxSpeed) throws Exception {
+
             this.maxSpeed = maxSpeed;
+            if (maxSpeed < 0) {
+                throw new Exception("El numero tiene que ser positivo");
+            } else {
+                this.maxSpeed = maxSpeed;
+                System.out.println("La velocidad se ha modificado");
+            }
         }
 
 
