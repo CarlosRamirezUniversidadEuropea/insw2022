@@ -39,6 +39,8 @@ public class Car extends Vehicle implements Cleanable {
         super(price, color);
     }
 
+
+
     //todo javadoc
     /** Starts the car */
     public void on() {
@@ -63,8 +65,8 @@ public class Car extends Vehicle implements Cleanable {
      */
     public void fillCombustible(Gasoline gasoline, int liters) throws Exception {
         if (gasoline == this.gasoline){
-            System.out.println("Coche lleno");
-        }else {
+            System.out.println("Coche llenado");
+        }else{
             throw new Exception("Cantidad de gasolina incorrecta");
         }
     }
@@ -75,7 +77,7 @@ public class Car extends Vehicle implements Cleanable {
      * @param time in seconds
      */
     public void startDriving (int speed, int time) throws Exception {
-        if (getLitrosActuales() > 0 && (speed < getMaxSpeed())){
+        if (/*getLitrosActuales() > 0 &&*/ (speed < getMaxSpeed())){
             System.out.println("Se está siendo conducido");
             this.speed = speed;
             this.time = time;
