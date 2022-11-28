@@ -55,8 +55,13 @@ public class Bicycle extends Vehicle implements Cleanable{
          * @param speed desired to drive
          * @param time in seconds
          */
-        public void startDriving (int speed, int time) {
-            // todo Create method to start driving
+        public void startRiding (int speed, int time) throws Exception {
+
+            if (speed >= maxSpeed) {
+                System.out.println("Velocidad Correcta :) ");
+            } else {
+                throw new Exception("Velocidad Alta :( porfavor baje la velocidad");
+            }
         }
 
         @Override
