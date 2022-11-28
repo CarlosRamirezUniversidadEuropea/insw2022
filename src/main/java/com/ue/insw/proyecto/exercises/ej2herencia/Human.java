@@ -8,7 +8,7 @@ public class Human extends Animal implements Speak {
 
     @Override
     public String toString() {
-        return "Human{ " + getNombre() + getRaza() + " }";
+        return "Human{ " + getNombre() + ", " + getRaza() + " }";
     }
 
     @Override
