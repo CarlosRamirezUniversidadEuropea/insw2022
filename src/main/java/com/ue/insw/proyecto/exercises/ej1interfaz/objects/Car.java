@@ -5,6 +5,7 @@ import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Color;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Gasoline;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status;
 import com.ue.insw.proyecto.exercises.ej1interfaz.interfaces.Cleanable;
+import java.util.Scanner;
 
 import java.math.BigDecimal;
 
@@ -68,21 +69,38 @@ public class Car extends Vehicle implements Cleanable {
      * @param gasoline type of gas
      * @param liters number of liters
      */
-    public void fillCombustible(Gasoline gasoline, int liters) throws Exception {
+
+    public void fillCombustible(Gasoline gasoline, int liters) {
+        //todo Create method to fill car
+        Scanner sc = new Scanner(System.in);
+        System.out.println("¿Cuánta gasolina vas a introducir?");
+        liters = Integer.parseInt(sc.next());
+
+        if(liters >= 0 && (gasoline == this.gasoline)){
+            System.out.println("Bien hecho");
+            setLitrosActuales(liters);
+        } else if(liters < 0 && (gasoline == this.gasoline)){
+            System.out.println("No puede haber litros negativos");
+        }
+
+        System.out.println(litrosActuales);
+    }
+
+    /*public void fillCombustible(Gasoline gasoline, int liters) throws Exception {
         if (gasoline == this.gasoline){
             System.out.println("Coche lleno");
         }else {
             throw new Exception("Cantidad de gasolina incorrecta");
         }
-    }
+    }*/
 
     /**
      * Starts driving the car
      * @param speed desired to drive
      * @param time in seconds
      */
-    public void startDriving (int speed, int time) throws Exception {
-        if (getLitrosActuales() > 0 && (speed < getMaxSpeed())){
+    public void startDriving (int speed, int time, int litrosActuales) throws Exception {
+        if (litrosActuales > 0 && speed < getMaxSpeed()){
             System.out.println("Se está siendo conducido");
             this.speed = speed;
             this.time = time;

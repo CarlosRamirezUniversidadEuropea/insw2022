@@ -10,7 +10,7 @@ public class Main {
         System.out.println("Perro: " + perro);
         perro.speak();
 
-        Human humana = new Human("36", "Carla");
+        Human humana = new Human("Humana", "Carla");
         System.out.println("Humano: " + humana);
         humana.speak();
     }

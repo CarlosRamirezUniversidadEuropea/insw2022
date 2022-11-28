@@ -8,7 +8,7 @@ public class Cat extends Animal implements Speak {
     }
 
     public String toString() {
-        return "Cat()" + getNombre() + getRaza();
+        return "Cat {" + getNombre() + ", " + getRaza() + "}";
     }
 
     @Override

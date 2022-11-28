@@ -4,7 +4,6 @@ public class Animal implements Speak{
 
     private String raza;
     private String name;
-    private int edad;
 
     public String getNombre() {
         return name;
@@ -25,14 +24,6 @@ public class Animal implements Speak{
     public Animal(String raza, String nombre) {
         this.raza = raza;
         this.name = nombre;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
     }
 
     @Override

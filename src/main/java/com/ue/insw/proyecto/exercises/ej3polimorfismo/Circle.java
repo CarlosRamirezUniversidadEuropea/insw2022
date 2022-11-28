@@ -4,7 +4,7 @@ package com.ue.insw.proyecto.exercises.ej3polimorfismo;
 public class Circle extends Shape {
 
     private double radio;
-    static final double PI = 3.141592653589793;
+    static final double pi = 3.141592653589793;
 
     public Circle(double radio) {
         this.radio = radio;
@@ -20,12 +20,12 @@ public class Circle extends Shape {
 
     @Override
     public double calculatePerimeter() {
-        return 0;
+        return 2*(pi*radio);
     }
 
     @Override
     public double calculateArea() {
-        return PI*(radio*radio);
+        return pi*(radio*radio);
     }
 
     @Override
