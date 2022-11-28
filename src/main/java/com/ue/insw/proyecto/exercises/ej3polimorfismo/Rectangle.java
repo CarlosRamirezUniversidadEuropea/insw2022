@@ -10,9 +10,9 @@ public class Rectangle extends Shape {
 
     private int ladoCorto;
 
-    public abstract double calculetPerimeter;
+    public double calculetPerimeter;
 
-    public abstract double calculetArea;
+    public  double calculetArea;
 
 
 

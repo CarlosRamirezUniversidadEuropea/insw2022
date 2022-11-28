@@ -6,6 +6,12 @@ public abstract class Shape {
     public abstract double calculatePerimeter();
     public abstract double calculateArea();
     public abstract String toString();
+
+    public Shape(String color){
+        this.color=color;
+    }
+
+    public abstract
     
 }
 

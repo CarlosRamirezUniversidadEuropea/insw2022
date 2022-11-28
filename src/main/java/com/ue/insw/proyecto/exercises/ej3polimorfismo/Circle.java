@@ -8,18 +8,23 @@ public class Circle extends Shape {
 
     private double pi;
 
+    public double calculatePerimeter;
+
+    private double calculateArea;
 
 
 
+    public Circle (String color, int radio, double pi,double calculateArea, double calculatePerimeter){
+        super(color,calculateArea, calculatePerimeter);
 
-
-    public Circle (String color, int radio, double pi){
         this.color=color;
         this.radio=radio;
         this.pi=3.1415;
 
 
     }
+
+
 
     public String getColor(){
         return color;
