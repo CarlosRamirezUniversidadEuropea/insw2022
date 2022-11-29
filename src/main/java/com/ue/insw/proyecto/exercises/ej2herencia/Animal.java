@@ -1,6 +1,6 @@
 package com.ue.insw.proyecto.exercises.ej2herencia;
 
-// todo implements Speak
+// todo implements Speak?
 public class Animal{
 
     private String raza;
