@@ -22,6 +22,9 @@ public class Main {
         System.out.println(car1.toString());
         System.out.println(car1.getPrice());
         car1.clean();
+        car1.fillCombustible(Gasoline.GASOLEO_A, 10, Gasoline.GASOLEO_A, 20, 50);
+        car1.startDriving(100, 12, 50, 140);
+        car1.stop();
 
         System.out.println(track1.toString());
         System.out.println(track1.getPrice());
@@ -30,6 +33,9 @@ public class Main {
         System.out.println(bicycle1.toString());
         System.out.println(bicycle1.getPrice());
         bicycle1.clean();
+        bicycle1.clean();
+        bicycle1.startRiding(20, 50, 14, true);
+
 
 
     }

@@ -83,7 +83,7 @@ public class Car extends Vehicle implements Cleanable {
     public void startDriving (int speed, int time, int litrosActuales, int maxSpeed) {
         if(litrosActuales>0) {
             if (speed<maxSpeed) {
-                System.out.println("Esta conduciendo sin problema alguno");
+                System.out.println("Esta conduciendo sin problema alguno a las " +time);
             }else {
                 System.out.println("Reduzca la velocidad por favor, no se adecua a la via");
             }
