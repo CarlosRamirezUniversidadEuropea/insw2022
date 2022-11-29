@@ -1,6 +1,7 @@
 module com.ue.insw.proyecto {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
     exports com.ue.insw.proyecto.controller;
     opens com.ue.insw.proyecto.controller to javafx.fxml;

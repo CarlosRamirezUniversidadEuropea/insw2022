@@ -16,20 +16,11 @@ public class Main {
             dog.speak();
 
 
-        Cat cat= new Cat("angora","Lucas", 6)
+        Cat cat= new Cat("angora","Lucas", 6);
         System.out.println(cat.getRaza());
         System.out.println(cat.getNombre());
         System.out.println(cat.toString());
             cat.speak();
-
-
-
-
-
-
-
-
-
 
     }
 

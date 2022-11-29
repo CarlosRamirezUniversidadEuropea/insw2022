@@ -2,92 +2,44 @@ package com.ue.insw.proyecto.exercises.ej3polimorfismo;
 
 //todo extends shape
 public class Circle extends Shape {
-    private String color ;
 
-    private int radio;
+    private double radio;
 
-    private double pi;
+    private final double pi = 3.1415926535;
 
-    public double calculatePerimeter;
-
-    private double calculateArea;
-
-
-
-    public Circle (String color, int radio, double pi,double calculateArea, double calculatePerimeter){
-        super(color,calculateArea, calculatePerimeter);
-
-        this.color=color;
-        this.radio=radio;
-        this.pi=3.1415;
-
-
-    }
-
-
-
-    public String getColor(){
-        return color;
-    }
-
-    public void setColor(String color){
-        this.color=color;
-    }
-
-    public int getRadio(){
-        return radio;
-    }
-
-    public void setRadio(int radio) {
+    public Circle(double radio, String color) {
+        super(color);
         this.radio = radio;
     }
 
-    public double getPi() {
-        return pi;
-    }
 
-    public void setPi(double pi) {this.pi =pi ;}
-
-    public getCalculetPerimeter() {
-
-        return pi * 2 * radio;
-    }
-
-
-    public double  CalculetArea() {
-        return pi * (radio * radio;
-    }
-
-    public double getcalculatePerimeter() {
-        return 0;
-    }
+    @Override
 
     public double calculatePerimeter() {
-        return 0;
+        return 2 * pi * radio;
     }
+
+    @Override
 
     public double calculateArea() {
-        return 0;
+        return pi * (radio * radio);
     }
+
+
+    public double getRadio() {
+        return radio;
+    }
+
+    public void setRadio(double radio) {
+        this.radio = radio;
+    }
+
 
     public String toString() {
-        return null;
+        return "El circulo tiene un radio de : " + radio;
     }
 
 
-    // @Override
-    //public String toString() {
-      //  return "Rectangle{" +
-        //        "color=" + color
-          //      "radio= "
-            //    "ladoCorto=" + lado1Corto
-              //  "calculetPerimeter=" + calculetPerimeter
-                //"caluletArea= " + calculetArea
-                //"}";
-   // }
-
-
-
 }
 
-}
+
