@@ -4,22 +4,13 @@ package com.ue.insw.proyecto.exercises.ej2herencia;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
-
-        Human humano=new Human("negra","paco",21);
+    public static void main(String[] args)  {
 
 
-        System.out.println(humano);
-        humano.speak();
+        Human humano=new Human("caucasico","pepe");
+        System.out.println(humano.getEdad());
+        System.out.println("\n");
 
-        Dog perro = new Dog("Pastor aleman", "Rex",-4);
-        System.out.println(perro);
-        perro.speak();
-
-
-        Cat gato = new Cat("Persa", "Don gato",2);
-        System.out.println(gato);
-        gato.speak();
 
 
 
