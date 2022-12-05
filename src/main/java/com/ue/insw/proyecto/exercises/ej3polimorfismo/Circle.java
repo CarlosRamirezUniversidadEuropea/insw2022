@@ -3,15 +3,28 @@ package com.ue.insw.proyecto.exercises.ej3polimorfismo;
 //todo extends shape
 public class Circle extends Shape {
 
+
+    private  double area ; // Area
+    private int radius ; // Radius
+    private double pi = 3.14;
+    private double perimeter; //Perimeter
+
+
+    // Math.pi
+
     @Override
     public double calculatePerimeter() {
-        return 0;
+        perimeter = 2 * pi * radius;
+        return perimeter;
     }
 
     @Override
     public double calculateArea() {
-        return 0;
+        area = pi * radius * radius;
+        return area;
+
     }
+
 
     @Override
     public String toString() {

@@ -20,20 +20,20 @@ public class Car extends Vehicle implements Cleanable {
     private int maxSpeed;
     private int speed;
     private Status status;
-
-    private int liters;
+    private int actualLiters;
     private Gasoline gasoline;
-    private int litrosAñadidos;
-    private int litrosActuales;
 
 
-    public Car(Brand brand, Color color, int maxSpeed, BigDecimal price) {
+    public Car(Brand brand, Color color, int maxSpeed, BigDecimal price, Gasoline gasoline) {
         super(price);
         this.brand = brand;
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
+        this.actualLiters = 0;
         this.status = STOPED;
+        this.gasoline = gasoline;
+
     }
 
     public Car(BigDecimal price) {
@@ -65,6 +65,8 @@ public class Car extends Vehicle implements Cleanable {
      * Set up the car speed
      * @param speed desired to drive
      */
+
+
     public void setSpeed(int speed) {
         this.speed = speed;
     }
@@ -74,10 +76,11 @@ public class Car extends Vehicle implements Cleanable {
      * @param gasoline type of gas
      * @param liters number of liters
      */
-    public void fillCombustible(Gasoline gasoline) throws Exception {
+    public void fillCombustible(Gasoline gasoline, int liters) throws Exception {
         if (this.gasoline == gasoline) {
-            liters = (litrosAñadidos + litrosActuales);
+            actualLiters = actualLiters + liters;
             System.out.println(" Has rellenado " + liters + " Litros con exito :)");
+
 
         } else {
             throw new Exception("El combustible no coincide con lo del coche ");
@@ -95,9 +98,9 @@ public class Car extends Vehicle implements Cleanable {
      */
     public void startDriving (int speed, int time, int gasoline) throws Exception {
 
-    if (liters < 0){
+    if (actualLiters < 0){
         System.out.println("Comprobando si el coche tiene Combustible");
-        System.out.println("El coche tiene: "+ liters + " Litros ");
+        System.out.println("El coche tiene: "+ actualLiters + " Litros ");
 
     }else {
         throw new Exception ("El coche no tiene Combustible Porfavor inserte Combustible para arrancar el coche");
