@@ -1,9 +1,12 @@
 package com.ue.insw.proyecto.exercises.ej1interfaz;
 
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Brand;
+import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.BrandBike;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Color;
 import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Gasoline;
+import com.ue.insw.proyecto.exercises.ej1interfaz.objects.Bicycle;
 import com.ue.insw.proyecto.exercises.ej1interfaz.objects.Car;
+import javafx.util.converter.ByteStringConverter;
 
 import java.math.BigDecimal;
 
@@ -17,6 +20,12 @@ public class Main {
         System.out.println(peugeot.toString());
         peugeot.clean();
         System.out.println(peugeot.getMaxSpeed());
+
+
+
+
+
+
     }
 
 
