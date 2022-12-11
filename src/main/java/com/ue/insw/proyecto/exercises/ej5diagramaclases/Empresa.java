@@ -14,8 +14,8 @@ public class Empresa {
     }
 
 
-    @Override
-    public String toString() {
+
+    public String mostrar () {
         return "Empresa{" +
                 "nombre='" + nombre + '\'' +
                 ", empleados=" + empleados +
