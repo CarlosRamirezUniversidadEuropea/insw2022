@@ -8,7 +8,7 @@ public class Pizza {
     private List<String> ingredients;
     private BakeStyle bakeStyle;
 
-    public Pizza(String base, List<String> ingredients) {
+    public Pizza(String base, List<String> ingredients, BakeStyle bakeStyle) {
 
     }
 
