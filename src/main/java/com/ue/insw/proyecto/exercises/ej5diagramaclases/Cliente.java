@@ -25,4 +25,12 @@ public class Cliente extends Persona {
     public void setTelefono_de_contacto(int telefono_de_contacto) {
         this.telefono_de_contacto = telefono_de_contacto;
     }
+
+
+    public String mostrar() {
+        return "Cliente{" +
+                "nombre_de_empresa='" + nombre_de_empresa + '\'' +
+                ", telefono_de_contacto=" + telefono_de_contacto +
+                '}';
+    }
 }

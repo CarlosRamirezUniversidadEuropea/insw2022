@@ -14,8 +14,8 @@ public class Persona {
 
 
 
-    @Override
-    public String toString() {
+
+    public String mostrar() {
         return "Persona{" +
                 "nombre='" + nombre + '\'' +
                 ", edad=" + edad +
