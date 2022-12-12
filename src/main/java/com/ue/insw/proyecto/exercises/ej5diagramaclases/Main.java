@@ -11,11 +11,13 @@ public class Main {
         Empresa empresa = new Empresa("Google");
 
         persona.mostrar();
+        System.out.println("");
 
         empleado.mostrar();
         System.out.println("Salario Neto: " +df.format(empleado.calcular_salario_neto()));
 
         cliente.mostrar();
+        System.out.println("");
 
         directivo.mostrar();
     }
