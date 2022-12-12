@@ -5,4 +5,8 @@ public class Empresa {
     ArrayList<Empleado> empleados = new ArrayList<Empleado>();
     ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     String nombre;
+
+    public Empresa(String nombre){
+        this.nombre = nombre;
+    }
 }

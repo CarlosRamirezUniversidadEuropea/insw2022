@@ -6,7 +6,15 @@ public class Directivo extends Empleado{
     ArrayList<Empleado> subordinados = new ArrayList<Empleado>();
     String categoria;
 
-    void mostrar(){
+    public Directivo(String nombre, int edad, double sueldo_bruto, String categoria){
+        super(nombre, edad, sueldo_bruto);
+        this.categoria = categoria;
+    }
+
+    public void mostrar(){
+        System.out.println("Nombre: " +nombre);
+        System.out.println("Edad: " +edad);
+        System.out.println("Sueldo Bruto: " +sueldo_bruto);
         System.out.println("Categoria: " +categoria);
     }
 }

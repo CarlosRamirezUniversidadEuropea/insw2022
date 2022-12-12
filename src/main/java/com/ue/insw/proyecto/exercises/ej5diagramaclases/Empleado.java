@@ -3,16 +3,24 @@ import java.util.ArrayList;
 
 public class Empleado extends Persona{
 
-    double sueldo_bruto, impuestos;
+    double sueldo_bruto;
 
-    void mostrar(){
-        System.out.println("Sueldo Bruto: " +sueldo_bruto);
-        calcular_salario_neto(sueldo_bruto, impuestos);
+    public Empleado(String nombre, int edad, double sueldo_bruto){
+        super(nombre, edad);
+        this.sueldo_bruto = sueldo_bruto;
     }
 
-    void calcular_salario_neto(double sb, double imp){
-        double salario_neto;
-        salario_neto = sb - imp;
+    public void mostrar(){
+        System.out.println("Nombre: " +nombre);
+        System.out.println("Edad: " +edad);
+        System.out.println("Sueldo Bruto: " +sueldo_bruto);
+        calcular_salario_neto(sueldo_bruto);
+    }
+
+    void calcular_salario_neto(double sb){
+        double salario_neto, impuestos;
+        impuestos = sb * 0.06;
+        salario_neto = sb - impuestos;
         System.out.println("Salario neto: " +salario_neto);
     }
 }
