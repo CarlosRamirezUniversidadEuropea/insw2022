@@ -1,5 +1,4 @@
 package com.ue.insw.proyecto.exercises.ej3polimorfismo;
-
 import java.text.DecimalFormat;
 
 public class Main {

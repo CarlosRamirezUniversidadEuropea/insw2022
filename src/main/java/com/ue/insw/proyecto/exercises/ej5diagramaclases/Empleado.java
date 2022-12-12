@@ -14,13 +14,12 @@ public class Empleado extends Persona{
         System.out.println("Nombre: " +nombre);
         System.out.println("Edad: " +edad);
         System.out.println("Sueldo Bruto: " +sueldo_bruto);
-        calcular_salario_neto(sueldo_bruto);
     }
 
-    void calcular_salario_neto(double sb){
+    public double calcular_salario_neto(){
         double salario_neto, impuestos;
-        impuestos = sb * 0.06;
-        salario_neto = sb - impuestos;
-        System.out.println("Salario neto: " +salario_neto);
+        impuestos = sueldo_bruto * 0.06;
+        salario_neto = sueldo_bruto - impuestos;
+        return salario_neto;
     }
 }
