@@ -10,7 +10,8 @@ public class Cliente extends Persona{
     }
 
     public void mostrar(){
-
+        System.out.println("Nombre: " +nombre);
+        System.out.println("Edad: " +edad);
         System.out.println("Nombre de Empresa: " +nombre_empresa);
         System.out.println("Telefono de Contacto: " +telefono_de_contacto);
     }

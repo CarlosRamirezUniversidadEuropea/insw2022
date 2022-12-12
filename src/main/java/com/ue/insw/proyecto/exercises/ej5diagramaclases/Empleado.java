@@ -13,7 +13,7 @@ public class Empleado extends Persona{
     public void mostrar(){
         System.out.println("Nombre: " +nombre);
         System.out.println("Edad: " +edad);
-        System.out.println("Sueldo Bruto: " +sueldo_bruto);
+        System.out.println("Sueldo Bruto: " +sueldo_bruto+ "€");
     }
 
     public double calcular_salario_neto(){
