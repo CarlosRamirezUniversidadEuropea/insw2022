@@ -1,20 +1,18 @@
 package com.ue.insw.proyecto.exercises.ej5diagramaclases;
 
+public class Persona {
+    String nombre;
+    int edad;
 
-
-public abstract class Persona {
-    private String Nombre;
-    private int Edad;
-
-    public Persona(String Nombre, String Tipo, String Puesto) {
-        this.Nombre = Nombre;
-        this.Edad= Edad;
-
+    public Persona(String nombre, int edad ){
+        this.nombre=nombre;
+        this.edad=edad;
     }
 
-
-    public  String toString(){
-        return "Persona{ "+Nombre+", "+Edad+"}";
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                '}';
     }
-
 }
