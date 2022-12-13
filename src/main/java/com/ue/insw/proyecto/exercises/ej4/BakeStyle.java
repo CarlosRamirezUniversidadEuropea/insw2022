@@ -1,8 +1,5 @@
 package com.ue.insw.proyecto.exercises.ej4;
 
-public class BakeStyle {
-
-    public void bake(Pizza pizza) {
-
-    }
+abstract class BakeStyle {
+    abstract void bake(Pizza pizza);
 }
