@@ -13,7 +13,8 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-    Cat siameses = new Cat (Raza.SIAMESES, Name.ASHLEY);
+        Cat siameses = new Cat ("Siames", "ashley");
+        siameses.speak();
     
     }
 }

@@ -1,6 +1,7 @@
 package com.ue.insw.proyecto.exercises.ej3polimorfismo;
 
-public abstract class Shape {
+public abstract class
+Shape {
 
     private String color;
     public abstract double calculatePerimeter();
