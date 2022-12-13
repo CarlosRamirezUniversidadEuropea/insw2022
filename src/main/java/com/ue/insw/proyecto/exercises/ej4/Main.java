@@ -6,8 +6,8 @@ public class Main {
         CarbonaraPizza c = new CarbonaraPizza(new BakeStyleHorno());
         BarbecuePizza b = new BarbecuePizza(new BakeStyleHorno());
 
-        System.out.println(h);
-        System.out.println(b);
-        System.out.println(c);
+        h.bake();
+        c.bake();
+        b.bake();
     }
 }

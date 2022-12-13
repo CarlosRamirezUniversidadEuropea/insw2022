@@ -22,7 +22,6 @@ public class Pizza {
         String sRet = "\nPizza:\n";
         sRet += "Estilo: " + base + "\n";
         sRet += "Ingredientes: " + ingredients + "\n";
-        sRet += "Bake Style: " + bakeStyle + "\n";
         return sRet;
     }
 }
