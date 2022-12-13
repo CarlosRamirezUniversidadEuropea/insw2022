@@ -8,11 +8,18 @@ public class Pizza {
     private List<String> ingredients;
     private BakeStyle bakeStyle;
 
-    public Pizza(String base, List<String> ingredients) {
-
+    public Pizza(String base, List<String> ingredients, BakeStyle bakeStyle) {
+        this.base = base;
+        this.ingredients = ingredients;
+        this.bakeStyle = bakeStyle;
     }
 
     public void bake() {
         bakeStyle.bake(this);
+    }
+
+    @Override
+    public String toString() {
+        return "La pizza tiene la base " + base + " los ingredientes " + ingredients + " y esta " + bakeStyle;
     }
 }
