@@ -4,7 +4,7 @@ import java.util.List;
 
 //todo extends pizza
 public class BarbecuePizza extends Pizza{
-    public BarbecuePizza(String base, List<String> ingredients, BakeStyle bakeStyle) {
-        super(base, ingredients, bakeStyle);
+    public BarbecuePizza(String nombre, String base, List<String> ingredients, BakeStyle bakeStyle) {
+        super(nombre, base, ingredients, bakeStyle);
     }
 }
