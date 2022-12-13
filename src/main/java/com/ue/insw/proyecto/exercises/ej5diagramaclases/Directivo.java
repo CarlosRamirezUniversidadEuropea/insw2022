@@ -9,7 +9,9 @@ public class Directivo extends Empleado{
     }
 
     public String toString() {
-        String sRet = "";
+        String sRet = ", de la categoría: " + categoria;
         return sRet;
     }
+
+    //No entiendo la relación de subordinados, creo que es como está puesto arriba.
 }
