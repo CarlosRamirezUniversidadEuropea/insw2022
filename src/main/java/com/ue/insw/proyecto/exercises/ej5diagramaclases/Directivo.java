@@ -13,5 +13,5 @@ public class Directivo extends Empleado{
         return sRet;
     }
 
-    //No entiendo la relación de subordinados, creo que es como está puesto arriba.
+    //Tengo una duda sobre la relación de subordinados, creo que es como está puesto arriba.
 }
