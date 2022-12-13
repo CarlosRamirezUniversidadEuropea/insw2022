@@ -7,12 +7,10 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         Human humano=new Human("negra","paco",21);
-
-
         System.out.println(humano);
         humano.speak();
 
-        Dog perro = new Dog("Pastor aleman", "Rex",-4);
+        Dog perro = new Dog("Pastor aleman", "Rex",5);
         System.out.println(perro);
         perro.speak();
 

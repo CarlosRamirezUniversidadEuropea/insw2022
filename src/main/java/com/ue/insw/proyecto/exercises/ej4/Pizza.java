@@ -8,11 +8,18 @@ public class Pizza {
     private List<String> ingredients;
     private BakeStyle bakeStyle;
 
-    public Pizza(String base, List<String> ingredients) {
+    public Pizza(String base, List<String> ingredients, BakeStyle bakeStyle) {
+        this.base = base;
+        this.ingredients = ingredients;
+        this.bakeStyle = bakeStyle;
 
     }
 
     public void bake() {
         bakeStyle.bake(this);
+    }
+
+    public  String toString(){
+        return "Pizza{ "+base+", "+ingredients+"}";
     }
 }
