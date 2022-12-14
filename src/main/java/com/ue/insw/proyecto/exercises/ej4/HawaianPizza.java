@@ -4,8 +4,7 @@ import java.util.Arrays;
 
 //todo extends pizza
 public class HawaianPizza extends Pizza{
-
-    public HawaianPizza(MuyHecha bakeStyle){
-        super("Normal", Arrays.asList("Tomate", "Piña", "Jamón"), bakeStyle, 12);
+    public HawaianPizza(BakeStyle bakeStyle) {
+        super("Gruesa", Arrays.asList("Salsa tomate", "Piña", "Chile verde", "Jamon", "Cebolla"), bakeStyle);
     }
 }

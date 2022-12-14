@@ -4,29 +4,26 @@ import java.util.List;
 
 public class Pizza {
 
-    private int precio;
-    private String atributoBase;
-    private List<String> atributoIngredients;
-    //private BakeStyle bakeStyle;
+    private String base;
+    private List<String> ingredients;
     private BakeStyle bakeStyle;
 
-    public Pizza(String base, List<String> ingredients, BakeStyle bakeStyle, int precio) {
-    this.atributoBase = base;
-    this.atributoIngredients = ingredients;
-    this.bakeStyle = bakeStyle;
-    this.precio = precio;
+    public Pizza(String base, List<String> ingredients, BakeStyle bakeStyle) {
+        this.base = base;
+        this.ingredients = ingredients;
+        this.bakeStyle = bakeStyle;
     }
 
     public void bake() {
         bakeStyle.bake(this);
     }
 
+    @Override
     public String toString() {
         return "Pizza{" +
-                "precio= " + precio +
-                ", atributoBase= " + atributoBase +
-                ", atributoIngredients= " + atributoIngredients +
-                ", tipoCocinado= " + bakeStyle +
-                "}";
+                "base='" + base + '\'' +
+                ", ingredients=" + ingredients +
+                ", bakeStyle=" + bakeStyle +
+                '}';
     }
 }
