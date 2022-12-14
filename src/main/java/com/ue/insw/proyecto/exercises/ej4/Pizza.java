@@ -20,10 +20,10 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return "Pizza{" +
-                "base='" + base + '\'' +
-                ", ingredients=" + ingredients +
-                ", bakeStyle=" + bakeStyle +
-                '}';
+        return " Pizza: " +
+                " base= '" + base + '\'' +
+                ", ingredients= " + ingredients +
+                ", bakeStyle= " + bakeStyle +
+                ' ';
     }
 }
