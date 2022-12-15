@@ -1,0 +1,23 @@
+[
+  {
+  "first_name" : "Sammy",
+  "last_name" : "Shark",
+  "location" : "Ocean",
+  "online" : true,
+  "followers" : 987
+},
+  {
+    "first_name" : "Manuel",
+    "last_name" : "Araújo",
+    "location" : "España",
+    "online" : true,
+    "followers" : 10
+  },
+    {
+    "first_name" : "Pepito",
+    "last_name" : "Grillo",
+    "location" : "Su pueblo",
+    "online" : false,
+    "followers" : 1
+  }
+]

@@ -4,7 +4,7 @@ module com.ue.insw.proyecto {
     requires com.google.gson;
     opens com.ue.insw.proyecto.exercises.json to com.google.gson;
     requires com.fasterxml.jackson.databind;
-
+    opens com.ue.insw.proyecto.exercises.json2 to com.fasterxml.jackson.databind;
 
 
 
@@ -26,4 +26,5 @@ module com.ue.insw.proyecto {
     opens com.ue.insw.proyecto.exercises.ej1interfaz.interfaces to javafx.fxml;
     exports com.ue.insw.proyecto.exercises.ej1interfaz.objects;
     opens com.ue.insw.proyecto.exercises.ej1interfaz.objects to javafx.fxml;
+
 }
