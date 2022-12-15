@@ -4,15 +4,17 @@ import java.util.List;
 
 public class Pizza {
 
-    private String base;
-    private List<String> ingredients;
-    private BakeStyle bakeStyle;
+    private String atribBase;
+    private List<String> atribIngredients;
+    private BakeStyle atribBakeStyle;
 
-    public Pizza(String base, List<String> ingredients) {
-
+    public Pizza(String base, List<String> ingredients, BakeStyle bakeStyle) {
+        this.atribBase=base;
+        this.atribIngredients=ingredients;
+        this.atribBakeStyle=bakeStyle;
     }
 
     public void bake() {
-        bakeStyle.bake(this);
+        atribBakeStyle.bake(this);
     }
 }
