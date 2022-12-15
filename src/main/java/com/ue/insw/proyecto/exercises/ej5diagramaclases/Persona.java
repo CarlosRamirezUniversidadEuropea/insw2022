@@ -1,20 +1,35 @@
 package com.ue.insw.proyecto.exercises.ej5diagramaclases;
 
-import java.util.ArrayList;
-
 public class Persona {
-    protected static String nombre;
-    protected static int edad;
 
-    public void setNombre(String nombre){
-        nombre=nombre;
+    private String edad;
+    private String nombre;
+
+    public Persona(String edad, String nombre) {
+        this.edad = edad;
+        this.nombre = nombre;
     }
 
-    public void setEdad(int edad){
-        edad=edad;
+    public String getEdad() {
+        return edad;
     }
 
-    public static void mostrar() {
-        System.out.println( "Nombre: "+ nombre +"; edad: "+ edad);
+    public void setEdad(String edad) {
+        this.edad = edad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String mostrar() {
+        return "Persona{" +
+                "edad='" + edad + '\'' +
+                ", nombre='" + nombre + '\'' +
+                '}';
     }
 }

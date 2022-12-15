@@ -1,6 +1,8 @@
 module com.ue.insw.proyecto {
     requires javafx.controls;
     requires javafx.fxml;
+    requires com.google.gson;
+    opens com.ue.insw.proyecto.exercises.json to com.google.gson;
 
     exports com.ue.insw.proyecto.controller;
     opens com.ue.insw.proyecto.controller to javafx.fxml;

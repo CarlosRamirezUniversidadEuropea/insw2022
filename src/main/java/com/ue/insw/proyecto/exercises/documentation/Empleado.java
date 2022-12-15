@@ -15,7 +15,8 @@ public class Empleado extends Persona{
     /**
      * Metodo constructor por defecto
      */
-    public Empleado(){
+    public Empleado(int personaEdad, String personaNombre){
+        super(personaNombre, personaEdad);
     }
     
     /**

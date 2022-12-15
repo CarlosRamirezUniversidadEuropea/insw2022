@@ -27,7 +27,7 @@ public class Persona {
 	 /**
      * Metodo constructor por defecto
      */
-	public Persona() {}
+	public Persona(String personaNombre, int personaEdad) {}
 
     /**
      * Metodo para regresar la edad de la persona
