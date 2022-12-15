@@ -4,7 +4,8 @@ public class Cliente  extends Persona{
     private String nombre_empresa;
     private int telefono_de_contacto;
 
-    public Cliente(String nombre_empresa, int telefono_de_contacto) {
+    public Cliente(String nombre, int edad,String nombre_empresa, int telefono_de_contacto) {
+        super(nombre, edad);
         this.nombre_empresa = nombre_empresa;
         this.telefono_de_contacto = telefono_de_contacto;
     }

@@ -8,6 +8,11 @@ public class Persona {
         System.out.println(this.toString());
     }
 
+    public Persona(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
     @Override
     public String toString() {
         return "Persona{" +

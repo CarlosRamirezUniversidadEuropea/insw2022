@@ -1,12 +1,16 @@
 package com.ue.insw.proyecto.exercises.ej5diagramaclases;
 
+import java.util.Arrays;
+
 public class Directivo extends Empleado{
 
     private String categoria;
+    private Empleado suborninados[];
 
-    public Directivo(int sueldo_bruto, String categoria) {
-        super(sueldo_bruto);
+    public Directivo(String nombre, int edad, int sueldo_bruto, String categoria, Empleado[] suborninados) {
+        super(nombre, edad, sueldo_bruto);
         this.categoria = categoria;
+        this.suborninados = suborninados;
     }
 
     public void mostrar(){
@@ -25,6 +29,7 @@ public class Directivo extends Empleado{
     public String toString() {
         return "Directivo{" +
                 "categoria='" + categoria + '\'' +
+                ", suborninados=" + Arrays.toString(suborninados) +
                 '}';
     }
 }
