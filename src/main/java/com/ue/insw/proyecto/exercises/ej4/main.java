@@ -4,9 +4,10 @@ import java.util.Collections;
 
 public class main {
     public static void main(String[] args) {
-        HawaianPizza HawaianPizza = new HawaianPizza( "Borde de queso", Collections.singletonList("Mozzarella, Piña, Jamon"), new HornoLeñaBS());
-        BarbecuePizza BarbecuePizza = new BarbecuePizza( "Fina", Collections.singletonList("Carne, Cebolla, Bacon, Salsa barbacoa"), new CalzonBS());
-        CarbonaraPizza CarbonaraPizza = new CarbonaraPizza("Tradicional", Collections.singletonList("Jamon, Champiñones, Cebolla"), new MuyHechaBS());
+        HawaianPizza HawaianPizza = new HawaianPizza(new CalzonBS());
+
+        BarbecuePizza BarbecuePizza = new BarbecuePizza(new MuyHechaBS());
+        CarbonaraPizza CarbonaraPizza = new CarbonaraPizza(new MuyHechaBS());
 
 
         HawaianPizza.toString();

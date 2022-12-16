@@ -4,13 +4,11 @@ import java.util.List;
 
 public class Pizza {
     private String name;
-
     private String base;
     private List<String> ingredients;
     private BakeStyle bakeStyle;
 
-    public Pizza(String name, String base, List<String> ingredients, BakeStyle bakeStyle) {
-        this.name=name;
+    public Pizza(String base, List<String> ingredients, BakeStyle bakeStyle) {
         this.base=base;
         this.ingredients=ingredients;
         this.bakeStyle=bakeStyle;
