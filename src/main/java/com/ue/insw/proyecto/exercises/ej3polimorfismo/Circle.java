@@ -4,23 +4,25 @@ package com.ue.insw.proyecto.exercises.ej3polimorfismo;
 public class Circle extends Shape {
 
 
-    private  double area ; // Area
+
     private int radius ; // Radius
     private double pi = 3.14;
-    private double perimeter; //Perimeter
 
+    public Circle(int radius) {
+        this.radius = radius;
+    }
 
     // Math.pi
 
     @Override
     public double calculatePerimeter() {
-        perimeter = 2 * pi * radius;
+        double perimeter = 2 * pi * radius;
         return perimeter;
     }
 
     @Override
     public double calculateArea() {
-        area = pi * radius * radius;
+        double area = pi * radius * radius;
         return area;
 
     }

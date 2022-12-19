@@ -15,6 +15,11 @@ public class Main {
 
         Cat siameses = new Cat ("Siames", "ashley");
         siameses.speak();
+
+        Dog husky = new Dog("husky","Max");
+
+        Human moha = new Human("Normal","Moha");
+
     
     }
 }

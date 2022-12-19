@@ -5,19 +5,24 @@ public class Rectangle extends Shape{
 
     private int width;
     private int height;
-    private int length;
-    private int area1;
-    private int perimeter1;
+
+
+    public Rectangle (int width,int height){
+
+        this.width = width;//radio
+        this.height = height;
+
+    }
 
     @Override
     public double calculateArea() {
-        area1 = width * height;
+        double area1 = width * height;
         return area1;
     }
 
     @Override
     public double calculatePerimeter() {
-        perimeter1 = 2 + (length + width);
+        double perimeter1 = 2 + (height + width);
         return perimeter1;
     }
 
