@@ -22,11 +22,19 @@ public class Main {
 
         Truck volvo=new Truck(TruckBrand.volvo,Color.BLUE,10,new BigDecimal(150000));
         System.out.println(volvo.getPrice());
-        System.out.println(t.getBrand());
-        System.out.println(peugeot.getColor());
-        System.out.println(peugeot.toString());
+        System.out.println(volvo.getBrand());
+        System.out.println(volvo.getColor());
+        System.out.println(volvo.toString());
+        volvo.agregarkilos(100);
+        volvo.clean();
 
-
+        Bicycle bmx =new Bicycle(BrandBike.BMX, Color.BLACK, 12, new BigDecimal(800));
+        System.out.println(bmx.getPrice());
+        System.out.println(bmx.getBrandBike());
+        System.out.println(bmx.getColor());
+        System.out.println(bmx.toString());
+        System.out.println(bmx.toString());
+        bmx.clean();
 
 
 
