@@ -1,9 +1,6 @@
 package com.ue.insw.proyecto.exercises.ej1interfaz.objects;
+import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.*;
 import com.ue.insw.proyecto.exercises.ej1interfaz.interfaces.Cleanable;
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Brand;
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Color;
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Gasoline;
-import com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status;
 
 import java.math.BigDecimal;
 
@@ -13,23 +10,27 @@ import static com.ue.insw.proyecto.exercises.ej1interfaz.enumerates.Status.STOPE
 //todo extender de Vehicle
 //todo implements Cleanable
 public class Truck extends Vehicle implements Cleanable {
-    private Brand brand;
+    private TruckBrand brand;
     private Color color;
     private int maxSpeed;
     private int speed;
     private Status status;
 
-    private int maxKilosSoportables;
+    private Gasoline gasoline;
+    private int actualLiters;
 
 
-    public Truck(Brand brand, Color color, int maxSpeed, BigDecimal price, int maxKilosSoportables) {
+    private int cargaKilos;
+
+
+    public Truck(TruckBrand brand, Color color, int maxSpeed, BigDecimal price) {
         super(price);
         this.brand = brand;
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.speed = 0;
         this.status = STOPED;
-        this.maxKilosSoportables= maxKilosSoportables;
+        this.cargaKilos=0;
     }
 
     public Truck(BigDecimal price) {
@@ -66,9 +67,15 @@ public class Truck extends Vehicle implements Cleanable {
      * @param gasoline type of gas
      * @param liters number of liters
      */
-    public void fillCombustible(Gasoline gasoline, int liters) {
+    public void fillCombustible(Gasoline gasoline, int liters) throws Exception {
+        if (this.gasoline == gasoline) {
+            actualLiters = actualLiters + liters;
+            System.out.println("relllenastes" + liters + "litros llenados");
+        } else {
+            throw new Exception("el combustible no coincide con lo del coche");
+
+        }
         //todo Create method to fill car
-        System.out.println("La cantidad de gasolina es de "+liters);
 
     }
 
@@ -79,10 +86,14 @@ public class Truck extends Vehicle implements Cleanable {
      */
 
 
-    public void startDriving (int speed, int time) {
+    public void startDriving (int speed, int time) throws Exception{
+        if (actualLiters<0){
+            System.out.println("comprobando si el camion tiene combustible");
+            System.out.println("el camion tiene " + actualLiters+ "litros");
+        }else{
+            throw new Exception("el camion no tiene combustible, rellenar urgente");
+        }
         // todo Create method to start driving
-        setSpeed(speed);
-        System.out.println("El camion  ha empezado a conducir");
     }
 
     @Override
@@ -90,11 +101,11 @@ public class Truck extends Vehicle implements Cleanable {
         System.out.println("Camión limpiándose");
     }
 
-    public Brand getBrandBike() {
+    public TruckBrand getBrand() {
         return brand;
     }
 
-    public void setBrandBike(Brand brand) {
+    public void setBrand(TruckBrand brand) {
         this.brand = brand;
     }
 
@@ -115,12 +126,13 @@ public class Truck extends Vehicle implements Cleanable {
     //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
 
 
-    public void setmaxKilosSoportables(int maxKilosSoportables){
-        this.maxKilosSoportables= maxKilosSoportables;
-        System.out.println("La cantidad de maximo de kilogramos soportables es: " + maxKilosSoportables);
-
-
-
+    public void agregarkilos(int kilos) throws Exception{
+        if (cargaKilos <= 33000){
+            cargaKilos= cargaKilos + kilos;
+            System.out.println("el paso de la carga del camion es de: ");
+        }else {
+            throw new Exception("el camion ha superado el peso maximo");
+        }
     }
 
 

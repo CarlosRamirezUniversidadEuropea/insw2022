@@ -71,7 +71,7 @@ public class Bicycle extends Vehicle implements Cleanable {
      * @param time in seconds
      */
     public void startDriving (int speed, int time) throws Exception{
-        if (speed >= masSpeed){
+        if (speed >= maxSpeed){
             System.out.println("Velocidad acertada");
             }
         else {
@@ -108,12 +108,23 @@ public class Bicycle extends Vehicle implements Cleanable {
     //todo la velocidad tiene que ser un numero positivo, modificar método, encapsulamiento
     public void setMaxSpeed(int maxSpeed) throws Exception{
         this.maxSpeed = maxSpeed;
-        if (maxSpeed <0){ }
+        if (maxSpeed <0){
+            throw new Exception("El numero tiene que ser positivo: ");
+        }else {
+            this.maxSpeed=maxSpeed;
+        }
     }
     public int getSpeed() {
         return speed;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     @Override
     public String toString() {

@@ -64,7 +64,13 @@ public class Car extends Vehicle implements Cleanable {
      * @param gasoline type of gas
      * @param liters   number of liters
      */
-    public void fillCombustible(Gasoline gasoline, int liters) {
+    public void fillCombustible(Gasoline gasoline, int liters) throws Exception {
+        if(this.tipoGasolina==gasoline){
+            litrosActuales=litrosActuales + liters;
+            System.out.println("Has rellenado:" + liters + "Litros con exito: ");
+        }else{
+            throw new Exception( "El combustible no coincide con lo del coche");
+        }
         //todo Create method to fill car
 
 
@@ -77,7 +83,19 @@ public class Car extends Vehicle implements Cleanable {
      * @param speed desired to drive
      * @param time  in seconds
      */
-    public void startDriving(int speed, int time) {
+    public void startDriving(int speed, int time, int gasoline)throws Exception {
+        if(litrosActuales < 0){
+            System .out.println("comprobando si el coche tiene combustible");
+            System.out.println("Coche tiene: "+ litrosActuales+ "Litros0");
+        }else{
+            throw new Exception("el coche no tiene combustible porfavor inserte combustible para arrancar el coche");
+        }
+
+        if (speed >= maxSpeed){
+            System.out.println("velocidad correcta");
+        }else{
+            throw new Exception("Velocidad alta porfavor baje la velocidad");
+        }
         // todo Create method to start driving
     }
 
@@ -125,9 +143,15 @@ public class Car extends Vehicle implements Cleanable {
         return speed;
         }
 
+    public Status getStatus() {
+        return status;
+    }
 
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
-        @Override
+    @Override
         public String toString () {
             return "Car{" +
                     "brand=" + brand +
