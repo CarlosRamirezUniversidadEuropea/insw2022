@@ -1,26 +1,17 @@
 package com.ue.insw.proyecto.exercises.ej2herencia;
 
 public class Main {
-    public static void main(String[] args) {
-       Human human = new Human("Juan",56,"humano");
-       System.out.println(human.getRaza());
-       System.out.println(human.getNombre());
-       System.out.println(human.toString());
-           human.speak();
+    public static void main(String[] args) throws Exception {
+      Cat siameses= new Cat("siameses","juan",12);
+      siameses.speak();
 
+      Dog coocker =new Dog("coocker","Doky");
+      coocker.speak();
 
-       Dog dog= new Dog ("cocker", "Doky", 6);
-       System.out.println(dog.getRaza());
-       System.out.println(dog.getNombre());
-       System.out.println(dog.toString());
-            dog.speak();
+      Human alvaro=new Human("ALvaro",20,"mestizo");
+      alvaro.speak();
 
-
-        Cat cat= new Cat("angora","Lucas", 6);
-        System.out.println(cat.getRaza());
-        System.out.println(cat.getNombre());
-        System.out.println(cat.toString());
-            cat.speak();
+;
 
     }
 
