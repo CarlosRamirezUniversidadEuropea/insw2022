@@ -17,7 +17,7 @@ public class Human extends Animal implements Speak {
 
     @Override
     public void speak() {
-        System.out.println("Hola");
+        System.out.println("E humano dice: Hola");
     }
 
 

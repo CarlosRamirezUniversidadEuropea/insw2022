@@ -17,7 +17,7 @@ public class Cat extends Animal implements Speak{
 
     @Override
     public void speak() {
-        System.out.println("miau-miau");
+        System.out.println("El gato dice: miau-miau");
 
     }
 

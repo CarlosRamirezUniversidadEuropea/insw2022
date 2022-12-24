@@ -18,7 +18,7 @@ public class Dog extends Animal implements Speak {
 
     @Override
     public void speak() {
-        System.out.println("uau-uau");
+        System.out.println("El perro dice: uau-uau");
 
     }
 
