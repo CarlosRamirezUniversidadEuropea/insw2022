@@ -6,7 +6,7 @@ public class Human extends Animal implements Speak {
 
 
     public Human (String nombre,int edad,String raza){
-        super(nombre,raza);
+        super(nombre,raza,edad);
 
 
     }

@@ -43,7 +43,7 @@ public class Rectangle extends Shape {
 
     @Override
     public String toString() {
-        return ("Este rectang tienee una base de " + ladoLargo+ "y una altura de "+ ladoCorto);
+        return ("Este rectangulo tiene una base de " + ladoLargo+ " y una altura de "+ ladoCorto);
     }
 
 

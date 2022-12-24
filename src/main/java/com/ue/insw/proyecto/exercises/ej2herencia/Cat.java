@@ -8,8 +8,8 @@ public class Cat extends Animal implements Speak{
     private int edad;
 
     public Cat(String raza, String nombre, int edad){
-        super(raza,nombre );
-        this.edad=edad;
+        super(raza,nombre,edad );
+
 
     }
 

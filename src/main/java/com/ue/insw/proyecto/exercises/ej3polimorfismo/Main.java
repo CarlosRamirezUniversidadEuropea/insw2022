@@ -10,5 +10,13 @@ public class Main {
         System.out.println(rectangle);
 
 
+        Circle circle = new Circle(5,"black");
+        System.out.println("perimetro: "+ circle.calculatePerimeter());
+        System.out.println("area: "+ circle.calculateArea());
+        System.out.println(circle.toString());
+        System.out.println(circle);
+
+
+
     }
 }
